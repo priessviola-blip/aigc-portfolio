@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>李连凯 · AIGC 作品集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&amp;family=Noto+Serif+SC:wght@400;600;700&amp;display=swap">
+<style>
+:root {
+  --paper: #f7f5ef; --ink: #16233a; --cobalt: #1d4fbf; --sky: #a9cbf3; --gold: #c9a24b;
+  --serif: "Noto Serif SC", "Songti SC", SimSun, serif;
+  --gutter: clamp(16px, 4vw, 64px);
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--paper); color: var(--ink); font-family: var(--serif); -webkit-font-smoothing: antialiased; }
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; grid-template-rows: auto 1fr; overflow: hidden; isolation: isolate; padding: clamp(12px, 2.2vw, 30px) var(--gutter); }
+.wash { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.floral { position: absolute; z-index: 2; width: min(24vw, 42svh); pointer-events: none; user-select: none; }
+.floral--tr { top: -3svh; right: -2vw; }
+.floral--bl { bottom: -5svh; left: -3vw; transform: rotate(180deg); }
+
+.nav { position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; border-inline: 2px solid #254876; background: transparent; padding: 15px clamp(14px, 2vw, 28px); }
+.nav::before, .nav::after {
+  content: ""; position: absolute; inset-inline: -5px; height: 6px; pointer-events: none;
+  background: linear-gradient(90deg, #24456f 0%, #45648b 32%, #294970 67%, #6b86a5 100%);
+  clip-path: polygon(0 58%, 2% 22%, 17% 9%, 42% 27%, 67% 16%, 88% 22%, 97% 0, 100% 42%, 94% 63%, 81% 76%, 62% 69%, 34% 94%, 14% 71%, 4% 100%);
+}
+.nav::before { top: -2px; }
+.nav::after { bottom: -2px; transform: rotate(180deg); }
+.nav a, .portfolio-entry { color: inherit; text-decoration: none; }
+.signature { display: grid; gap: 4px; align-content: center; }
+.signature strong { font-size: clamp(18px, 2vw, 28px); font-weight: 700; letter-spacing: .16em; }
+.signature span { color: #4d607a; font-size: 12px; letter-spacing: .08em; }
+.nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: 4px clamp(6px, 1vw, 16px); list-style: none; padding: 0; }
+.nav li a { display: block; padding: 9px clamp(10px, 1.15vw, 18px); font-weight: 600; white-space: nowrap; }
+.nav li a:not([aria-current]):not(:hover) { background: #f7f5efcb; }
+.nav a[aria-current], .nav li a:hover { color: #174288; background: #e7eef7; }
+.nav .contact { border: 1px solid #8d9fba; }
+
+.stage { position: relative; z-index: 3; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: center; gap: clamp(16px, 3vw, 50px); padding-block: 18px; }
+.hero-copy { justify-self: start; }
+.collection-title { display: inline-flex; align-items: center; gap: .7em; margin-top: 14px; color: #244978; font-family: "Ma Shan Zheng", KaiTi, STKaiti, var(--serif); font-size: clamp(23px, 3vw, 40px); line-height: 1.15; letter-spacing: .12em; }
+.collection-title::after { content: ""; width: clamp(24px, 4vw, 56px); height: 2px; background: linear-gradient(90deg, #b39356, #b3935600); }
+.headline { color: #142e56; font-size: clamp(46px, min(7vw, 12svh), 112px); font-weight: 700; line-height: 1.18; letter-spacing: .10em; }
+.headline span { display: block; }
+.headline span + span { color: #224d88; }
+.tagline { margin: 16px 0 24px; color: #33455e; font-size: clamp(14px, 1.4vw, 19px); line-height: 1.7; }
+.portfolio-entry { display: inline-flex; align-items: center; min-height: 48px; padding: 0 23px; border: 1px solid #264b81; background: #264b81; color: #fff; font-size: 16px; font-weight: 600; letter-spacing: .10em; }
+.portfolio-entry:hover { background: #17365f; }
+.nav a:focus-visible, .portfolio-entry:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 4px; }
+.dragon { position: relative; justify-self: center; width: min(100%, max(300px, calc(106svh - 145px))); aspect-ratio: 1; pointer-events: none; }
+.dragon canvas, .dragon img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.dragon canvas { opacity: 0; transition: opacity .5s ease; }
+.dragon img { transition: opacity .5s ease; }
+.dragon .back { opacity: 0; }
+.dragon.is-live canvas { opacity: 1; }
+.dragon.is-live img { opacity: 0; }
+.hero:hover .dragon:not(.is-live) .back { opacity: 1; }
+
+@media (max-width: 680px) {
+  .nav { gap: 8px; }
+  .nav ul { width: 100%; font-size: 13px; }
+  .nav li a { padding: 8px 10px; }
+  .stage { grid-template-columns: minmax(0, 1fr); align-content: center; gap: 8px; padding-block: 24px 0; }
+  .headline { font-size: clamp(36px, 9vw, 56px); }
+  .headline span { display: inline; }
+  .tagline { margin: 10px 0 15px; }
+  .dragon { width: min(100%, 440px); }
+  .floral { width: 40vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dragon canvas, .dragon img { transition: none; }
+}
+</style>
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+    body > .hero > .stage, body > main { animation: content-arrive .28s ease-out both; }
+    @keyframes content-arrive {
+      from { opacity: .88; }
+      to { opacity: 1; }
+    }
+  }
+</style>
+</head>
+<body>
+
+
+<header class="hero" id="hero">
+  <canvas class="wash" id="wash" aria-hidden="true"></canvas>
+  <img class="floral floral--tr" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261004_073106_56d0499c-5908-4447-86b8-465d712ca552.png">
+  <img class="floral floral--bl" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261004_073106_56d0499c-5908-4447-86b8-465d712ca552.png">
+  <nav class="nav" aria-label="主导航">
+    <a class="signature" href="./index.html"><strong>李连凯</strong><span>AIGC 短剧制作与影视视觉设计</span></a>
+    <ul>
+      <li><a href="./index.html" aria-current="page">首页</a></li>
+      <li><a href="./stitch-18358134310995193695/portfolio-desktop.html">作品</a></li>
+      <li><a href="./stitch-18358134310995193695/about.html">关于我</a></li>
+      <li><a class="contact" href="./stitch-18358134310995193695/portfolio-desktop.html#contact-section">联系我</a></li>
+    </ul>
+  </nav>
+  <div class="stage">
+    <div class="hero-copy">
+      <h1 class="headline"><span>AIGC</span> <span>作品集</span></h1>
+      <p class="collection-title">云起龙吟</p>
+      <p class="tagline">短剧制作、影视视觉与设计</p>
+      <a class="portfolio-entry" href="./stitch-18358134310995193695/portfolio-desktop.html">浏览作品</a>
+    </div>
+  <div class="dragon" id="dragon">
+    <img class="front" id="front" crossorigin="anonymous" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261004_073040_d706a5ff-b2fc-4330-923c-b16405025697.png" alt="一条盘旋的白瓷中国龙。移动指针可显出青花纹样与金色纹路。">
+    <img class="back" id="back" crossorigin="anonymous" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261004_073023_751a55cc-be81-4346-9f91-3c00987f54ef.png">
+    <canvas id="reveal" aria-hidden="true"></canvas>
+  </div>
+  </div>
+</header>
+<script>
+(() => {
+  const TRAIL = { radius: 0.105, strength: 1.0, dissipation: 0.966, momentum: 9, fluidity: 1.7, simSize: 256 };
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const vertex = `
+attribute vec2 aPos; varying vec2 vUv;
+  void main() { vUv = aPos * 0.5 + 0.5; gl_Position = vec4(aPos, 0.0, 1.0); }
+`;
+  const noise = `
+float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+  float noise(vec2 p) {
+    vec2 i = floor(p), f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hash(i), hash(i + vec2(1, 0)), u.x),
+               mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), u.x), u.y);
+  }
+  float fbm(vec2 p) {
+    float v = 0.0, a = 0.5;
+    for (int i = 0; i < 5; i++) { v += a * noise(p); p = p * 2.03 + 17.1; a *= 0.5; }
+    return v;
+  }
+`;
+  const washShader = `
+uniform vec2 uCenter; uniform float uSide, uTime;
+  void main() {
+    vec2 p = (gl_FragCoord.xy - uCenter) / uSide;
+    p.x *= 0.66;
+    float t = uTime * 0.02;
+    vec2 q = p * 2.4;
+    vec2 w = vec2(fbm(q + t), fbm(q + vec2(5.2, 1.3) - t));
+    float n = fbm(q * 1.3 + w * 2.2);
+    float n2 = fbm(q * 3.6 + w * 3.0 + 9.0);
+    float f = (1.0 - length(p) / 0.45) + (n - 0.5) * 1.25;
+    float a = smoothstep(0.0, 0.2, f);
+    a *= smoothstep(-0.05, 0.3, f + (n2 - 0.5) * 1.0);
+    vec3 sky = vec3(0.663, 0.796, 0.953);
+    vec3 cobalt = vec3(0.114, 0.310, 0.749);
+    float depth = smoothstep(0.12, 0.85, f * (0.45 + n2 * 1.15));
+    vec3 col = mix(sky, cobalt, depth);
+    col = mix(col, vec3(0.97, 0.98, 1.0), smoothstep(0.6, 0.85, n2) * 0.5);
+    a *= 0.6 + 0.4 * depth;
+    float grain = hash(gl_FragCoord.xy) - 0.5;
+    a = clamp(a + grain * 0.14 * a, 0.0, 1.0);
+    vec2 mistP = (p - vec2(0.015, -0.075)) * vec2(0.85, 1.06);
+    float drift = fbm(mistP * vec2(4.4, 7.3) + w * 2.4 + vec2(2.1, -t * 0.65));
+    float folds = fbm(mistP * vec2(7.2, 10.0) - w * 1.35 + vec2(t * 0.6, 8.0));
+    float rim = 1.0 - smoothstep(0.20, 0.64, length(mistP + (w - 0.5) * 0.24));
+    float mist = rim * smoothstep(0.33, 0.75, drift + (folds - 0.5) * 0.42) * 0.49;
+    vec3 mistColor = mix(vec3(0.84, 0.90, 0.98), vec3(0.52, 0.69, 0.86), smoothstep(0.34, 0.72, folds));
+    gl_FragColor = vec4(col * a + mistColor * mist * (1.0 - a), a + mist * (1.0 - a));
+  }
+`;
+  const simulationShader = `
+uniform sampler2D uPrev; uniform vec2 uA, uB, uTexel;
+  uniform float uStrength, uRadius, uDecay, uFrames, uFluid, uTime; varying vec2 vUv;
+  void main() {
+    vec2 flow = vec2(noise(vUv * 5.0 + vec2(0.0, uTime * 0.3)),
+                     noise(vUv * 5.0 + vec2(7.3, -uTime * 0.3))) - 0.5;
+    vec2 uv = vUv - flow * uTexel * uFluid * 2.0;
+    float c = texture2D(uPrev, uv).r * 0.5
+            + (texture2D(uPrev, uv + vec2(uTexel.x, 0.0)).r
+            +  texture2D(uPrev, uv - vec2(uTexel.x, 0.0)).r
+            +  texture2D(uPrev, uv + vec2(0.0, uTexel.y)).r
+            +  texture2D(uPrev, uv - vec2(0.0, uTexel.y)).r) * 0.125;
+    c = c * uDecay - 0.003 * uFrames;
+    vec2 pa = vUv - uA, ba = uB - uA;
+    float h = clamp(dot(pa, ba) / max(dot(ba, ba), 1e-6), 0.0, 1.0);
+    float d = length(pa - ba * h);
+    c += smoothstep(uRadius, 0.0, d) * uStrength;
+    gl_FragColor = vec4(vec3(clamp(c, 0.0, 1.0)), 1.0);
+  }
+`;
+  const displayShader = `
+uniform sampler2D uMask, uFront, uBack; varying vec2 vUv;
+  void main() {
+    float m = texture2D(uMask, vUv).r;
+    float n = fbm(vUv * 11.0);
+    m = smoothstep(0.1, 0.55, m + (n - 0.5) * 0.55 * smoothstep(0.0, 0.3, m));
+    gl_FragColor = mix(texture2D(uFront, vUv), texture2D(uBack, vUv), m);
+  }
+`;
+
+  const hero = document.getElementById('hero');
+  const dragon = document.getElementById('dragon');
+  const washCanvas = document.getElementById('wash');
+  const revealCanvas = document.getElementById('reveal');
+  const front = document.getElementById('front');
+  const back = document.getElementById('back');
+
+  function context(canvas) {
+    const gl = canvas.getContext('webgl', { premultipliedAlpha: true, antialias: false });
+    if (!gl) throw new Error('WebGL 1 is unavailable');
+    const quad = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, quad);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+    return gl;
+  }
+
+  function program(gl, fragment, names) {
+    function compile(type, source) {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        throw new Error(gl.getShaderInfoLog(shader));
+      }
+      return shader;
+    }
+
+    const vs = compile(gl.VERTEX_SHADER, vertex);
+    const fs = compile(gl.FRAGMENT_SHADER, 'precision highp float;\n' + noise + '\n' + fragment);
+    const handle = gl.createProgram();
+    gl.attachShader(handle, vs);
+    gl.attachShader(handle, fs);
+    gl.bindAttribLocation(handle, 0, 'aPos');
+    gl.linkProgram(handle);
+    gl.deleteShader(vs);
+    gl.deleteShader(fs);
+    if (!gl.getProgramParameter(handle, gl.LINK_STATUS)) {
+      throw new Error(gl.getProgramInfoLog(handle));
+    }
+    const uniforms = Object.fromEntries(names.split(' ').map(name => [name, gl.getUniformLocation(handle, name)]));
+    return { handle, uniforms };
+  }
+
+  function texture(gl) {
+    const image = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, image);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    return image;
+  }
+
+  function target(gl) {
+    const mask = texture(gl);
+    const size = TRAIL.simSize;
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, size, size, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    const buffer = gl.createFramebuffer();
+    gl.bindFramebuffer(gl.FRAMEBUFFER, buffer);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, mask, 0);
+    if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) !== gl.FRAMEBUFFER_COMPLETE) {
+      throw new Error('Trail framebuffer is incomplete');
+    }
+    gl.clearColor(0, 0, 0, 1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    return { mask, buffer };
+  }
+
+  function upload(gl, img) {
+    const image = texture(gl);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+    if (gl.getError() !== gl.NO_ERROR) throw new Error('Dragon texture upload failed');
+    return image;
+  }
+
+  async function imageReady(img) {
+    try {
+      await img.decode();
+    } catch {
+      if (img.complete) {
+        if (!img.naturalWidth) throw new Error('Dragon image failed to load: ' + img.src);
+        return;
+      }
+      await new Promise((resolve, reject) => {
+        img.addEventListener('load', resolve, { once: true });
+        img.addEventListener('error', () => reject(new Error('Dragon image failed to load: ' + img.src)), { once: true });
+      });
+    }
+  }
+
+  function sample(gl, unit, image, uniform) {
+    gl.activeTexture(gl.TEXTURE0 + unit);
+    gl.bindTexture(gl.TEXTURE_2D, image);
+    gl.uniform1i(uniform, unit);
+  }
+
+  let cloud;
+  let reveal;
+  let rect;
+  let centerX, centerY, side;
+  let aim = [0.5, 0.5];
+  let brush = [0.5, 0.5];
+  let hasPointer = false;
+  let intro = reduceMotion ? 1 : 0;
+
+  function drawCloud(time) {
+    const { gl, pass } = cloud;
+    const u = pass.uniforms;
+    gl.viewport(0, 0, washCanvas.width, washCanvas.height);
+    gl.useProgram(pass.handle);
+    gl.uniform2f(u.uCenter, centerX, centerY);
+    gl.uniform1f(u.uSide, side);
+    gl.uniform1f(u.uTime, time);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+
+  function step(from, to, strength, frames, time) {
+    const { gl, simulation, read, write } = reveal;
+    const u = simulation.uniforms;
+    const size = TRAIL.simSize;
+    gl.bindFramebuffer(gl.FRAMEBUFFER, write.buffer);
+    gl.viewport(0, 0, size, size);
+    gl.useProgram(simulation.handle);
+    sample(gl, 0, read.mask, u.uPrev);
+    gl.uniform2fv(u.uA, from);
+    gl.uniform2fv(u.uB, to);
+    gl.uniform2f(u.uTexel, 1 / size, 1 / size);
+    gl.uniform1f(u.uStrength, strength);
+    gl.uniform1f(u.uRadius, TRAIL.radius);
+    gl.uniform1f(u.uDecay, Math.pow(TRAIL.dissipation, frames));
+    gl.uniform1f(u.uFrames, frames);
+    gl.uniform1f(u.uFluid, TRAIL.fluidity);
+    gl.uniform1f(u.uTime, time);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    reveal.read = write;
+    reveal.write = read;
+  }
+
+  function drawDragon() {
+    const { gl, display, read, frontTexture, backTexture } = reveal;
+    const u = display.uniforms;
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    gl.viewport(0, 0, revealCanvas.width, revealCanvas.height);
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.useProgram(display.handle);
+    sample(gl, 0, read.mask, u.uMask);
+    sample(gl, 1, frontTexture, u.uFront);
+    sample(gl, 2, backTexture, u.uBack);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+
+  function resize() {
+    const r = hero.getBoundingClientRect();
+    rect = dragon.getBoundingClientRect();
+    const scale = Math.min(devicePixelRatio, 1.5) * 0.75;
+    washCanvas.width = r.width * scale;
+    washCanvas.height = r.height * scale;
+    centerX = (rect.left - r.left + rect.width * 0.53) * scale;
+    centerY = (r.height - (rect.top - r.top + rect.height * 0.5)) * scale;
+    side = rect.width * scale;
+    const size = Math.min(2048, rect.width * Math.min(devicePixelRatio, 2));
+    revealCanvas.width = revealCanvas.height = size;
+    if (cloud && reduceMotion) drawCloud(12);
+    if (reveal) drawDragon();
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('pointermove', event => {
+    const uv = [(event.clientX - rect.left) / rect.width, 1 - (event.clientY - rect.top) / rect.height];
+    if (!hasPointer) {
+      brush = uv.slice();
+      hasPointer = true;
+      intro = 1;
+    }
+    aim = uv;
+  }, { passive: true });
+
+  let last = performance.now();
+  let framePending = false;
+
+  function scheduleFrame() {
+    if (framePending || (!(cloud && !reduceMotion) && !reveal)) return;
+    last = performance.now();
+    framePending = true;
+    requestAnimationFrame(frame);
+  }
+
+  function frame(now) {
+    framePending = false;
+    const elapsed = (now - last) / 1000;
+    const dt = Math.min(0.05, elapsed);
+    const time = now / 1000;
+
+    if (cloud && !reduceMotion) drawCloud(time);
+    if (reveal) {
+      if (intro < 1) {
+        intro = Math.min(1, intro + dt / 1.6);
+        const y = 0.9 - intro * 0.8;
+        aim = [0.53 + Math.sin(y * 9.5 + 1.2) * 0.13, y];
+        if (!hasPointer && intro <= dt) brush = aim.slice();
+      }
+
+      const from = brush.slice();
+      const k = 1 - Math.exp(-dt * TRAIL.momentum);
+      brush[0] += (aim[0] - brush[0]) * k;
+      brush[1] += (aim[1] - brush[1]) * k;
+      const moved = Math.hypot(brush[0] - from[0], brush[1] - from[1]);
+      const strength = Math.min(1, moved * 90) * TRAIL.strength;
+      step(from, brush, strength, Math.min(elapsed, 1) * 60, time);
+      drawDragon();
+    }
+
+    if ((cloud && !reduceMotion) || reveal) {
+      last = now;
+      framePending = true;
+      requestAnimationFrame(frame);
+    }
+  }
+
+  washCanvas.addEventListener('webglcontextlost', () => {
+    cloud = undefined;
+    console.warn('Watercolor WebGL context lost.');
+  });
+  revealCanvas.addEventListener('webglcontextlost', () => {
+    reveal = undefined;
+    dragon.classList.remove('is-live');
+    console.warn('Dragon WebGL context lost. Using CSS hover fallback.');
+  });
+
+  try {
+    const gl = context(washCanvas);
+    cloud = { gl, pass: program(gl, washShader, 'uCenter uSide uTime') };
+  } catch (error) {
+    console.warn('Watercolor WebGL initialization failed.', error);
+  }
+  resize();
+  scheduleFrame();
+
+  async function bootDragon() {
+    try {
+      const gl = context(revealCanvas);
+      const simulation = program(gl, simulationShader, 'uPrev uA uB uTexel uStrength uRadius uDecay uFrames uFluid uTime');
+      const display = program(gl, displayShader, 'uMask uFront uBack');
+      await Promise.all([imageReady(front), imageReady(back)]);
+      const frontTexture = upload(gl, front);
+      const backTexture = upload(gl, back);
+      const read = target(gl);
+      const write = target(gl);
+      reveal = { gl, simulation, display, frontTexture, backTexture, read, write };
+      resize();
+      dragon.classList.add('is-live');
+      scheduleFrame();
+    } catch (error) {
+      reveal = undefined;
+      console.warn('Dragon reveal initialization failed. Using CSS hover fallback.', error);
+    }
+  }
+
+  bootDragon();
+})();
+</script>
+</body>
+</html>

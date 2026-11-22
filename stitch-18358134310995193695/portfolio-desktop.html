@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" data-works-view="selected"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>李连凯 | AIGC 短剧制作与影视视觉设计</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"tertiary":"#000000","surface-container":"#f0ede9","outline":"#767872","inverse-primary":"#c9c6c4","on-tertiary-container":"#a37f1c","on-primary-container":"#858382","surface-container-lowest":"#ffffff","tertiary-fixed-dim":"#ecc15a","on-secondary-container":"#fefcff","on-error-container":"#93000a","on-primary-fixed-variant":"#474745","surface-container-highest":"#e5e2de","on-tertiary":"#ffffff","on-background":"#1c1c19","error-container":"#ffdad6","secondary":"#0051d5","tertiary-fixed":"#ffdf99","on-primary":"#ffffff","on-secondary-fixed":"#00174b","inverse-surface":"#31302e","on-secondary-fixed-variant":"#003ea8","outline-variant":"#c7c7c0","on-surface-variant":"#464742","surface-tint":"#5f5e5d","primary":"#000000","surface":"#fcf9f5","secondary-fixed":"#dbe1ff","surface-variant":"#e5e2de","tertiary-container":"#251a00","on-secondary":"#ffffff","surface-bright":"#fcf9f5","error":"#ba1a1a","secondary-fixed-dim":"#b4c5ff","surface-container-high":"#ebe8e4","inverse-on-surface":"#f3f0ec","on-tertiary-fixed":"#251a00","surface-dim":"#dcdad6","primary-fixed":"#e5e2e0","on-surface":"#1c1c19","background":"#fcf9f5","primary-fixed-dim":"#c9c6c4","secondary-container":"#316bf3","surface-container-low":"#f6f3ef","primary-container":"#1c1c1a","on-error":"#ffffff","on-primary-fixed":"#1c1c1a","on-tertiary-fixed-variant":"#5a4300"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","margin-tablet":"2rem","space-xl":"2.5rem","gutter-mobile":"1rem","space-md":"1rem","space-lg":"1.5rem","margin":"4rem","gutter":"1.5rem","space-sm":"0.5rem","margin-mobile":"1.25rem"},"fontFamily":{"display-xl":["Space Grotesk"],"label-code":["JetBrains Mono"],"headline-lg-mobile":["Space Grotesk"],"headline-lg":["Space Grotesk"],"body-md":["Inter"],"title-md":["Inter"],"display-xl-mobile":["Space Grotesk"],"headline-md":["Space Grotesk"],"label-caps":["Space Grotesk"],"body-lg":["Inter"],"body-sm":["Inter"],"headline-sm":["Space Grotesk"]},"fontSize":{"display-xl":["72px",{"lineHeight":"80px","letterSpacing":"-0.03em","fontWeight":"700"}],"label-code":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["44px",{"lineHeight":"52px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"title-md":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-xl-mobile":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-caps":["11px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"30px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"500"}]}}}}</script><style>
+  .work-index { background: #171d27; border: 1px solid #293241; border-radius: 14px; padding: clamp(14px, 2vw, 24px); }
+  .work-tabs, .work-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .work-tags { border-top: 1px solid #46576e; margin-top: 14px; padding-top: 14px; }
+  .work-tabs button, .work-tabs a, .work-tags button {
+    border: 1px solid #3e536e; border-radius: 6px; padding: 9px 15px;
+    color: #d2ecff; font-family: "Noto Serif SC", "Songti SC", SimSun, serif;
+    font-weight: 700; line-height: 1.45; letter-spacing: .035em;
+  }
+  .work-tabs button, .work-tabs a { font-size: clamp(16px, 2.05vw, 23px); }
+  .work-tags button { font-size: clamp(15px, 1.6vw, 19px); }
+  .work-tabs span { margin-inline-start: 4px; font-size: .68em; }
+  .work-tabs a { margin-inline-start: auto; }
+  .work-tabs button:hover, .work-tabs a:hover, .work-tags button:hover { background: #2c4770; color: #fff; }
+  .work-tabs [aria-pressed="true"] { border-color: #91c8ff; background: #9dd7ff; color: #112944; box-shadow: inset 0 -3px #498fce; }
+  .work-tags [aria-pressed="true"] { border-color: #ff9ed4; background: #ffb6dd; color: #46233e; box-shadow: inset 0 -3px #dd69a9; }
+  .work-index :focus-visible { outline: 2px solid #85caff; outline-offset: 2px; }
+  .work-tags[hidden], [data-work][hidden], #method-banner[hidden] { display: none !important; }
+  .work-status { margin-top: 24px; color: #b2bfce; font-size: 14px; }
+  @media (max-width: 560px) { .work-tabs a { margin-inline-start: 0; } }
+</style><style>
+.work-project{overflow:hidden;background:#171d27;border:1px solid #293241;border-radius:14px}
+.work-project a{display:block;height:100%;color:inherit}
+.work-project a:focus-visible{outline:2px solid #85caff;outline-offset:-2px}
+.work-cover{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#10141c}
+.work-project-body{padding:16px}
+.work-project h3{color:#9fd3ff;font-size:1.25rem;font-weight:600;margin:5px 0}
+.work-project-meta{color:#bbc9da;font-size:.875rem}
+</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&amp;family=Noto+Serif+SC:wght@400;600;700&amp;display=swap">
+<style>
+.cover-navigation, .portfolio-main { --paper: #f7f5ef; background-color: var(--paper); }
+.cover-navigation {
+  --paper: #f7f5ef;
+  --ink: #16233a;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(12px, 2.2vw, 30px) clamp(16px, 4vw, 64px);
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 16px/normal "Noto Serif SC", "Songti SC", SimSun, serif;
+}
+.cover-navigation-floral { position: absolute; z-index: -1; top: -3svh; right: -2vw; width: min(24vw, 42svh); pointer-events: none; }
+.nav { position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; border-inline: 2px solid #254876; background: transparent; padding: 15px clamp(14px, 2vw, 28px); }
+.nav::before, .nav::after {
+  content: ""; position: absolute; inset-inline: -5px; height: 6px; pointer-events: none;
+  background: linear-gradient(90deg, #24456f 0%, #45648b 32%, #294970 67%, #6b86a5 100%);
+  clip-path: polygon(0 58%, 2% 22%, 17% 9%, 42% 27%, 67% 16%, 88% 22%, 97% 0, 100% 42%, 94% 63%, 81% 76%, 62% 69%, 34% 94%, 14% 71%, 4% 100%);
+}
+.nav::before { top: -2px; }
+.nav::after { bottom: -2px; transform: rotate(180deg); }
+.nav a { color: inherit; text-decoration: none; }
+.signature { display: grid; gap: 4px; align-content: center; }
+.signature strong { font-size: clamp(18px, 2vw, 28px); font-weight: 700; letter-spacing: .16em; }
+.signature span { color: #4d607a; font-size: 12px; letter-spacing: .08em; }
+.nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: 4px clamp(6px, 1vw, 16px); list-style: none; padding: 0; }
+.nav li a { display: block; padding: 9px clamp(10px, 1.15vw, 18px); font-weight: 600; white-space: nowrap; }
+.nav li a:not([aria-current]):not(:hover) { background: #f7f5efcb; }
+.nav a[aria-current], .nav li a:hover { color: #174288; background: #e7eef7; }
+.nav .contact { border: 1px solid #8d9fba; }
+.cover-navigation a:focus-visible { outline: 2px solid #1d4fbf; outline-offset: 4px; }
+@media (max-width: 680px) {
+  .cover-navigation .nav { gap: 8px; }
+  .cover-navigation .nav ul { width: 100%; font-size: 13px; }
+  .cover-navigation .nav li a { padding: 8px 10px; }
+  .cover-navigation-floral { width: 40vw; }
+}
+</style><script>
+  if (new URLSearchParams(location.search).get('view') === 'all') {
+    document.documentElement.dataset.worksView = 'all';
+  }
+</script>
+<style>
+html[data-works-view="selected"] [data-view-only="all"],
+html[data-works-view="all"] [data-view-only="selected"],
+html[data-works-view="selected"] [data-work]:not([data-featured]) { display: none !important; }
+html[data-works-view="selected"] .works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 28px);
+}
+html[data-works-view="selected"] .works-grid > .work-project { grid-column: auto; min-width: 0; }
+@media (max-width: 680px) {
+  html[data-works-view="selected"] .works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) {
+  html[data-works-view="selected"] .works-grid { grid-template-columns: minmax(0, 1fr); }
+}
+.works-intro { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: flex-end; justify-content: space-between; margin-bottom: 24px; }
+.works-eyebrow { color: #446184; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; margin: 0 0 8px; }
+.works-title { color: #16233a; font-family: "Noto Serif SC", "Songti SC", SimSun, serif; font-size: clamp(36px, 5vw, 70px); line-height: 1.18; font-weight: 600; margin: 0; }
+.works-title strong { color: #315b8d; font-weight: inherit; }
+.works-view-link { color: #234e80; border-bottom: 1px solid #869eb9; padding: 8px 0; font-family: "Noto Serif SC", "Songti SC", SimSun, serif; font-weight: 600; white-space: nowrap; }
+.works-view-link:hover { border-color: currentColor; color: #152f52; }
+.works-view-link:focus-visible { outline: 2px solid #1d4fbf; outline-offset: 4px; }
+.work-status { color: #4d607a; }
+</style>
+<style>
+.contact-section { background: #f7f5ef; color: #16233a; border-top: 1px solid #d9dfe5; }
+.contact-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: clamp(28px, 7vw, 108px); max-width: 1440px; margin-inline: auto; padding: clamp(44px, 7vw, 100px) clamp(20px, 5vw, 76px); }
+.contact-eyebrow { color: #4d6685; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; margin: 0 0 12px; }
+.contact-grid h2 { color: #16233a; font-family: "Noto Serif SC", "Songti SC", SimSun, serif; font-size: clamp(40px, 6vw, 82px); font-weight: 600; line-height: 1.12; margin: 0; }
+.contact-grid h2 span { color: #315b8d; }
+.contact-intro { color: #4d607a; font-size: clamp(15px, 1.45vw, 20px); line-height: 1.7; margin: 22px 0; }
+.contact-details { display: grid; gap: 13px; margin: 0; }
+.contact-details > div { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 14px; }
+.contact-details dt { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #e6edf5; color: #315b8d; font-size: 12px; font-weight: 600; }
+.contact-details dd { margin: 0; font-size: clamp(15px, 1.5vw, 20px); overflow-wrap: anywhere; color: #33455e; }
+.contact-details a:hover, .contact-resume a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.contact-resume { margin: 18px 0 0; color: #315b8d; }
+.contact-wechat { display: grid; justify-items: center; align-content: center; gap: 14px; margin: 0; padding: clamp(30px, 5vw, 68px) 20px; min-height: clamp(300px, 33vw, 490px); background: #e8edf2; border: 1px solid #d9e1e8; border-radius: 22px; text-align: center; }
+.contact-wechat img { display: block; width: min(100%, 240px); height: auto; border-radius: 8px; }
+.contact-wechat figcaption { color: #33455e; font-weight: 600; }
+.contact-section a:focus-visible { outline: 2px solid #1d4fbf; outline-offset: 4px; }
+@media (max-width: 700px) { .contact-grid { grid-template-columns: minmax(0,1fr); } }
+</style>
+<script>if (location.hash === "#profile") location.replace("./about.html#profile");</script>
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+    body > .hero > .stage, body > main { animation: content-arrive .28s ease-out both; }
+    @keyframes content-arrive {
+      from { opacity: .88; }
+      to { opacity: 1; }
+    }
+  }
+</style>
+<style id="ink-frame-theme">
+  .work-project { border-color: #49617c; }
+  .work-index { border-color: #526984; }
+  .work-tabs button, .work-tabs a, .work-tags button { position: relative; border-color: #7391ab82; }
+  .ink-flow-surface { position: relative; isolation: isolate; }
+  .ink-flow-surface.work-project { overflow: visible; }
+  .ink-flow-surface.work-project > a { overflow: hidden; border-radius: inherit; }
+  .ink-flow { position: absolute; inset: -28px; width: calc(100% + 56px); height: calc(100% + 56px); pointer-events: none; z-index: -1; }
+  .work-tabs .ink-flow, .work-tags .ink-flow { inset: -10px; width: calc(100% + 20px); height: calc(100% + 20px); }
+  @media (prefers-reduced-motion: reduce) { .ink-flow { display: none; } }
+</style>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+
+<header class="cover-navigation">
+  <img class="cover-navigation-floral" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261004_073106_56d0499c-5908-4447-86b8-465d712ca552.png">
+  <nav class="nav" aria-label="主导航">
+    <a class="signature" href="../index.html"><strong>李连凯</strong><span>AIGC 短剧制作与影视视觉设计</span></a>
+    <ul>
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="./portfolio-desktop.html" aria-current="page">作品</a></li>
+      <li><a href="./about.html">关于我</a></li>
+      <li><a class="contact" href="#contact-section">联系我</a></li>
+    </ul>
+  </nav>
+</header><main class="portfolio-main w-full min-h-screen"><div class="flex flex-col w-full">
+<!-- Page Header & Filter Zone -->
+<section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin pt-10 pb-12">
+<div class="works-intro" id="work-tabs">
+  <div>
+    <p class="works-eyebrow"><span data-view-only="selected">Selected Works</span><span data-view-only="all">All Works</span></p>
+    <h1 class="works-title"><span data-view-only="selected">精选<strong>作品</strong></span><span data-view-only="all">全部<strong>作品</strong></span></h1>
+  </div>
+  <a class="works-view-link" data-view-only="selected" href="?view=all">查看全部作品 <span aria-hidden="true">→</span></a>
+  <a class="works-view-link" data-view-only="all" href="./portfolio-desktop.html">返回精选作品</a>
+</div>
+<div class="work-index" data-view-only="all" aria-label="作品分类">
+  <div class="work-tabs" id="gallery-filters">
+    <button type="button" data-kind="all" aria-pressed="true">全部作品</button>
+    <button type="button" data-kind="design" aria-pressed="false">设计作品 <span>静态</span></button>
+    <button type="button" data-kind="video" aria-pressed="false">视频作品 <span>动态</span></button>
+    <a href="./about.html">个人介绍</a>
+  </div>
+  <div class="work-tags" data-tags="design" aria-label="设计作品子分类" hidden>
+    <button type="button" data-category="all" aria-pressed="true">全部设计</button>
+    <button type="button" data-category="poster" aria-pressed="false">海报设计</button>
+    <button type="button" data-category="banner" aria-pressed="false">Banner 设计</button>
+    <button type="button" data-category="character" aria-pressed="false">IP 形象设计</button>
+    <button type="button" data-category="icon" aria-pressed="false">图标设计</button>
+    <button type="button" data-category="ecommerce" aria-pressed="false">电商主图和详情页设计</button>
+    <button type="button" data-category="drama-concept" aria-pressed="false">AI 剧的设定图设计</button>
+    <button type="button" data-category="ui-splash" aria-pressed="false">UI 启动页设计</button>
+  </div>
+  <div class="work-tags" data-tags="video" aria-label="视频作品子分类" hidden>
+    <button type="button" data-category="all" aria-pressed="true">全部视频</button>
+    <button type="button" data-category="ai-short" aria-pressed="false">AI短片</button>
+    <button type="button" data-category="tvc" aria-pressed="false">TVC广告</button>
+    <button type="button" data-category="product-recommendation" aria-pressed="false">带货种草</button>
+    <button type="button" data-category="ai-drama" aria-pressed="false">AI剧情</button>
+    <button type="button" data-category="interactive-film" aria-pressed="false">影视互动</button>
+    <button type="button" data-category="game-ad" aria-pressed="false">游戏广告</button>
+  </div>
+</div>
+</section>
+<!-- Curated Gallery Grid -->
+<section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin pb-20">
+<div class="works-grid grid grid-cols-1 md:grid-cols-12 gap-space-lg">
+<article class="md:col-span-4 work-project" data-featured data-work="video ai-short">
+  <a href="./projects/project-23/index.html"><img class='work-cover' src='./projects/project-23/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI短片</p><h3>休息一下</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-featured data-work="design character">
+  <a href="./designs/jingan-brand/index.html"><img class="work-cover" src="./designs/jingan-brand/page-056.webp" alt="" loading="lazy">
+    <div class="work-project-body"><p class="work-project-meta">品牌与营销视觉</p><h3>晋擀手擀面品牌全案</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-featured data-work="video tvc">
+  <a href="./projects/project-01/index.html"><img class='work-cover' src='./projects/project-01/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">TVC广告</p><h3>洗衣机</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-featured data-work="design poster banner ecommerce">
+  <a href="./designs/deli-markers/index.html"><img class="work-cover" src="./designs/deli-markers/page-006.webp" alt="" loading="lazy">
+    <div class="work-project-body"><p class="work-project-meta">电商与产品视觉</p><h3>得力双头记号笔电商全案</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-featured data-work="video ai-short">
+  <a href="./projects/project-24/index.html"><img class='work-cover' src='./projects/project-24/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI短片</p><h3>爷爷</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-featured data-work="video ai-short">
+  <a href="./designs/tidal-beacon/index.html"><img class="work-cover" src="./designs/tidal-beacon/keyframe.webp" alt="" loading="lazy">
+    <div class="work-project-body"><h3>潮汐信标 · 游戏 CG 动作预演</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-featured data-work="design poster">
+  <a href="./designs/unlock-your-space/index.html"><img class="work-cover" src="./designs/unlock-your-space/poster.webp" alt="" loading="lazy" style="object-fit:contain">
+    <div class="work-project-body"><p class="work-project-meta">品牌与营销视觉</p><h3>Unlock Your Space · 球鞋概念海报</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-featured data-work="design">
+  <a href="./designs/last-train-portrait/index.html"><img class="work-cover" src="./designs/last-train-portrait/poster.webp" alt="" loading="lazy">
+    <div class="work-project-body"><h3>末班车之后 · AI 人像</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-featured data-work="video ai-short">
+  <a href="./designs/glass-tide/index.html"><img class="work-cover" src="./designs/glass-tide/cover.jpg" alt="" loading="lazy">
+    <div class="work-project-body"><h3>玻璃潮汐 · 实验音画</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="design poster">
+  <a href="./designs/night-frame/index.html"><img class="work-cover" src="./designs/night-frame/poster.webp" alt="" loading="lazy">
+    <div class="work-project-body"><h3>Night Frame · 夜间电影节视觉</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="design poster banner ecommerce">
+  <a href="./designs/rouge-velours/index.html"><img class="work-cover" src="./designs/rouge-velours/poster.webp" alt="" loading="lazy">
+    <div class="work-project-body"><h3>Rouge Velours · 香水产品视觉</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="design drama-concept">
+  <a href="./designs/grandfather-visual/index.html"><img class="work-cover" src="./projects/project-24/asset-06.webp" alt="" loading="lazy">
+    <div class="work-project-body"><p class="work-project-meta">IP 与概念设计 · 现有短片资产整理</p><h3>爷爷 · 短片视觉设定</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-short">
+  <a href="./designs/last-train-motion/index.html"><img class="work-cover" src="./designs/last-train-motion/poster.webp" alt="" loading="lazy">
+    <div class="work-project-body"><h3>末班车之后 · 音画短片</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="design character">
+  <a href="./designs/jingan-character/index.html"><img class="work-cover" src="./designs/jingan-character/page-037.webp" alt="" loading="lazy">
+    <div class="work-project-body"><p class="work-project-meta">IP 与概念设计</p><h3>晋擀品牌 IP 形象设计</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="design icon">
+  <a href="./designs/wandering-post/index.html"><img class="work-cover" src="./designs/wandering-post/page-067.webp" alt="" loading="lazy">
+    <div class="work-project-body"><p class="work-project-meta">IP 与概念设计</p><h3>漫游邮局图标设计</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="design">
+  <a href="./designs/typography/index.html"><img class="work-cover" src="./designs/typography/page-060.webp" alt="" loading="lazy">
+    <div class="work-project-body"><p class="work-project-meta">IP 与概念设计</p><h3>字体设计练习</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="design">
+  <a href="./designs/illustrations/index.html"><img class="work-cover" src="./designs/illustrations/page-063.webp" alt="" loading="lazy">
+    <div class="work-project-body"><p class="work-project-meta">IP 与概念设计</p><h3>概念插画三则</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="design poster">
+  <a href="./designs/portrait-poster/index.html"><img class="work-cover" src="./designs/portrait-poster/page-070.webp" alt="" loading="lazy">
+    <div class="work-project-body"><p class="work-project-meta">人像与创意摄影</p><h3>心动进行时 &#183; 人像创意海报</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="design poster">
+  <a href="./designs/time-in-bloom/index.html"><img class="work-cover" src="./designs/time-in-bloom/page-071.webp" alt="" loading="lazy">
+    <div class="work-project-body"><p class="work-project-meta">IP 与概念设计</p><h3>时间开花 &#183; 概念海报</h3></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video product-recommendation">
+  <a href="./projects/project-02/index.html"><img class='work-cover' src='./projects/project-02/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">带货种草</p><h3>奥利奥</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video product-recommendation">
+  <a href="./projects/project-03/index.html"><img class='work-cover' src='./projects/project-03/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">带货种草</p><h3>脆柿</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video product-recommendation">
+  <a href="./projects/project-04/index.html"><img class='work-cover' src='./projects/project-04/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">带货种草</p><h3>耳机</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video product-recommendation">
+  <a href="./projects/project-05/index.html"><img class='work-cover' src='./projects/project-05/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">带货种草</p><h3>嚼，柠檬</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video product-recommendation">
+  <a href="./projects/project-06/index.html"><img class='work-cover' src='./projects/project-06/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">带货种草</p><h3>生发喷雾</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video product-recommendation">
+  <a href="./projects/project-07/index.html"><img class='work-cover' src='./projects/project-07/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">带货种草</p><h3>苏打饼干</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-08/index.html"><img class='work-cover' src='./projects/project-08/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>第二集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-09/index.html"><img class='work-cover' src='./projects/project-09/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>第一集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-10/index.html"><img class='work-cover' src='./projects/project-10/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>二集 (2)</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-11/index.html"><img class='work-cover' src='./projects/project-11/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>一集 (2)</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-12/index.html"><img class='work-cover' src='./projects/project-12/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>第二集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-13/index.html"><img class='work-cover' src='./projects/project-13/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>第一集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-14/index.html"><img class='work-cover' src='./projects/project-14/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>二集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-15/index.html"><img class='work-cover' src='./projects/project-15/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>一集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-16/index.html"><img class='work-cover' src='./projects/project-16/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>第二集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-17/index.html"><img class='work-cover' src='./projects/project-17/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>第一集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-18/index.html"><img class='work-cover' src='./projects/project-18/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>二集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-drama">
+  <a href="./projects/project-19/index.html"><img class='work-cover' src='./projects/project-19/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI剧情</p><h3>一集</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video interactive-film">
+  <a href="./projects/project-20/index.html"><img class='work-cover' src='./projects/project-20/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">影视互动</p><h3>影视互动</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video game-ad">
+  <a href="./projects/project-21/index.html"><img class='work-cover' src='./projects/project-21/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">游戏广告</p><h3>游戏广告</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video game-ad">
+  <a href="./projects/project-22/index.html"><img class='work-cover' src='./projects/project-22/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">游戏广告</p><h3>游戏广告2</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video ai-short">
+  <a href="./projects/project-25/index.html"><img class='work-cover' src='./projects/project-25/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">AI短片</p><h3>爷爷的暑假作业</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video tvc">
+  <a href="./projects/project-26/index.html"><img class='work-cover' src='./projects/project-26/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">TVC广告</p><h3>茶叶</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+<article class="md:col-span-4 work-project" data-work="video tvc">
+  <a href="./projects/project-27/index.html"><img class='work-cover' src='./projects/project-27/video-cover.jpg' alt='' loading='lazy'>
+    <div class="work-project-body"><p class="work-project-meta">TVC广告</p><h3>香水</h3><p class="work-project-meta">成片与制作资料</p></div>
+  </a>
+</article>
+</div>
+<p class="work-status" id="work-status" role="status" data-view-only="all">共 43 件作品</p>
+</section>
+
+<script>
+  const workTabs = [...document.querySelectorAll('#gallery-filters button')];
+  const tagGroups = [...document.querySelectorAll('[data-tags]')];
+  const workCards = [...document.querySelectorAll('[data-work]')];
+  const statusLine = document.getElementById('work-status');
+
+  function filterWorks(kind, category = 'all') {
+    workTabs.forEach(button => button.setAttribute('aria-pressed', button.dataset.kind === kind));
+    tagGroups.forEach(group => {
+      group.hidden = group.dataset.tags !== kind;
+      group.querySelectorAll('button').forEach(button => {
+        button.setAttribute('aria-pressed', !group.hidden && button.dataset.category === category);
+      });
+    });
+    let count = 0;
+    workCards.forEach(card => {
+      const [medium, ...tags] = card.dataset.work.split(' ');
+      card.hidden = kind !== 'all' && (kind !== medium || (category !== 'all' && !tags.includes(category)));
+      if (!card.hidden) count += 1;
+    });
+    statusLine.textContent = count ? '共 ' + count + ' 件作品' : '这个分类暂未展示作品。';
+  }
+
+  workTabs.forEach(button => button.addEventListener('click', () => filterWorks(button.dataset.kind)));
+  tagGroups.forEach(group => {
+    group.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', () => filterWorks(group.dataset.tags, button.dataset.category));
+    });
+  });
+</script>
+</div></main><footer class="contact-section" id="contact-section" aria-labelledby="contact-title">
+  <div class="contact-grid">
+    <div>
+      <p class="contact-eyebrow">Get in touch</p>
+      <h2 id="contact-title">有项目<br>想<span>合作？</span></h2>
+      <p class="contact-intro">如果你有 AIGC 短剧、视频生成或视觉设计项目，欢迎联系我。</p>
+      <dl class="contact-details">
+        <div><dt>邮箱</dt><dd><a href="mailto:1843722017@qq.com">1843722017@qq.com</a></dd></div>
+        <div><dt>电话</dt><dd><a href="tel:+8615534984120">155 3498 4120</a></dd></div>
+        <div><dt>微信</dt><dd>L14797280632</dd></div>
+      </dl>
+      <p class="contact-resume"><a href="./resume.docx" download="李连凯 AIGC 求职简历 A4投递版.docx">下载求职简历（DOCX）</a></p>
+    </div>
+    <figure class="contact-wechat">
+      <img src="./wechat-qr.png" width="592" height="592" alt="李连凯的微信二维码" loading="lazy">
+      <figcaption>微信扫码联系</figcaption>
+    </figure>
+  </div>
+</footer><script id="ink-flow-animation">
+(() => {
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const targets = '.work-project, .work-index, .work-tabs button, .work-tabs a, .work-tags button, .contact-wechat, .skill, .experience-card';
+  const visible = new Map();
+  let frame = 0;
+
+  function plume(ctx, originX, originY, reach, time, seed, light, activity) {
+    const age = (time * .19 + seed) % 1;
+    const envelope = Math.sin(Math.PI * age) ** 1.6;
+    const drift = Math.sin(time * .91 + seed * 15);
+    ctx.save();
+    ctx.translate(originX, originY);
+    ctx.lineCap = 'round';
+
+    // Adjacent filaments share a flow field but spread as they dilute.
+    for (let filament = -4; filament <= 4; filament++) {
+      const separation = filament / 4;
+      const strength = activity * (.55 + .45 * envelope) * (1 - Math.abs(separation) * .13);
+      const extent = reach * (.44 + age * .52 + separation * .09);
+      const pigment = ctx.createLinearGradient(0, 0, extent, 0);
+      const rgb = light ? '129,192,229' : '34,99,150';
+      pigment.addColorStop(0, 'rgba(' + rgb + ',0)');
+      pigment.addColorStop(.19, 'rgba(' + rgb + ',' + (strength * .27) + ')');
+      pigment.addColorStop(.55, 'rgba(' + rgb + ',' + (strength * .16) + ')');
+      pigment.addColorStop(1, 'rgba(' + rgb + ',0)');
+      ctx.strokeStyle = pigment;
+      ctx.lineWidth = filament === 0 ? 2.8 : .8 + age * .55;
+      ctx.beginPath();
+      for (let step = 0; step <= 21; step++) {
+        const s = step / 21;
+        const advance = extent * s;
+        const curl = Math.sin(s * 8.2 - time * 1.48 + seed * 12 + separation * .52);
+        const cross = Math.sin(s * 3.3 + time * .69 + seed * 9);
+        const spread = Math.min(light ? 16 : 46, reach);
+        const y = (curl * .21 + cross * .15 + separation * .15 + drift * .10 - .12) * spread * s;
+        if (step === 0) ctx.moveTo(advance, y);
+        else ctx.lineTo(advance, y);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function draw(now) {
+    frame = 0;
+    if (motion.matches || document.hidden || !visible.size) return;
+    const time = now / 1000;
+    const ratio = Math.min(devicePixelRatio || 1, 1.5);
+    visible.forEach(({ canvas, ctx, seed, compact }, target) => {
+      const width = target.clientWidth;
+      const height = target.clientHeight;
+      if (!width || !height) return;
+      const pad = compact ? 10 : 28;
+      const pixelWidth = Math.round((width + pad * 2) * ratio);
+      const pixelHeight = Math.round((height + pad * 2) * ratio);
+      if (canvas.width !== pixelWidth || canvas.height !== pixelHeight) {
+        canvas.width = pixelWidth;
+        canvas.height = pixelHeight;
+      }
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      ctx.clearRect(0, 0, width + pad * 2, height + pad * 2);
+      ctx.save();
+
+      // Keep the center of every card and control free of moving pigment.
+      ctx.beginPath();
+      ctx.rect(0, 0, width + pad * 2, height + pad * 2);
+      ctx.roundRect(pad, pad, width, height, compact ? 5 : 14);
+      ctx.clip('evenodd');
+
+      const edges = [
+        { x: pad, y: pad, angle: 0, length: width },
+        { x: pad + width, y: pad, angle: Math.PI / 2, length: height },
+        { x: pad + width, y: pad + height, angle: Math.PI, length: width },
+        { x: pad, y: pad + height, angle: Math.PI * 1.5, length: height }
+      ];
+      const lap = (time / 3.1 + seed * 4) % 4;
+      const lifetime = 1.43;
+      edges.forEach((edge, index) => {
+        const phase = (lap - index + 4) % 4;
+        if (phase >= lifetime) return;
+
+        const travel = phase / lifetime;
+        const activity = Math.sin(Math.PI * travel) ** 1.2;
+        const reach = Math.min(compact ? 44 : 108, edge.length * .48);
+        const inset = Math.min(compact ? 3 : 12, edge.length * .15);
+        const run = Math.max(0, edge.length - reach - inset * 2);
+
+        ctx.save();
+        ctx.translate(edge.x, edge.y);
+        ctx.rotate(edge.angle);
+        plume(ctx, inset + run * travel, compact ? -2 : -4,
+          reach, time, (seed + index * .19) % 1, compact, activity);
+        ctx.restore();
+      });
+      ctx.restore();
+    });
+    schedule();
+  }
+
+  function schedule() {
+    if (!frame && visible.size && !motion.matches && !document.hidden) frame = requestAnimationFrame(draw);
+  }
+
+  if (!('IntersectionObserver' in window) || !CanvasRenderingContext2D.prototype.roundRect) return;
+  const states = new Map();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        let state = states.get(entry.target);
+        if (!state) {
+          const canvas = document.createElement('canvas');
+          canvas.className = 'ink-flow';
+          canvas.setAttribute('aria-hidden', 'true');
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return;
+          entry.target.classList.add('ink-flow-surface');
+          entry.target.append(canvas);
+          state = { canvas, ctx, seed: (states.size * .618) % 1, compact: entry.target.matches('button, a') };
+          states.set(entry.target, state);
+        }
+        visible.set(entry.target, state);
+      } else if (visible.delete(entry.target)) {
+        const state = states.get(entry.target);
+        state.ctx.clearRect(0, 0, state.canvas.width, state.canvas.height);
+      }
+    });
+    schedule();
+  });
+
+  document.querySelectorAll(targets).forEach(target => observer.observe(target));
+  document.addEventListener('visibilitychange', schedule);
+  motion.addEventListener('change', schedule);
+})();
+</script>
+</body></html>
