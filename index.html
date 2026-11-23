@@ -40,16 +40,15 @@ body { background: var(--paper); color: var(--ink); font-family: var(--serif); -
 .nav a[aria-current], .nav li a:hover { color: #174288; background: #e7eef7; }
 .nav .contact { border: 1px solid #8d9fba; }
 
-.stage { position: relative; z-index: 3; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: center; gap: clamp(16px, 3vw, 50px); padding-block: 18px; }
-.hero-copy { justify-self: start; }
-.headline { color: #142e56; font-size: clamp(46px, min(7vw, 12svh), 112px); font-weight: 700; line-height: 1.18; letter-spacing: .10em; }
-.headline span { display: block; }
-.headline span + span { color: #224d88; }
-.tagline { margin: 16px 0 24px; color: #33455e; font-size: clamp(14px, 1.4vw, 19px); line-height: 1.7; }
-.portfolio-entry { display: inline-flex; align-items: center; min-height: 48px; padding: 0 23px; border: 1px solid #264b81; background: #264b81; color: #fff; font-size: 16px; font-weight: 600; letter-spacing: .10em; }
+.stage { position: relative; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: center; gap: clamp(16px, 3vw, 50px); padding-block: 18px; }
+.hero-copy { justify-self: start; width: 100%; min-width: 0; }
+.headline { position: relative; z-index: 3; width: min(100%, 640px); mix-blend-mode: multiply; }
+.headline img { display: block; width: 100%; height: auto; }
+.tagline { position: relative; z-index: 3; margin: 16px 0 24px; color: #33455e; font-size: clamp(14px, 1.4vw, 19px); line-height: 1.7; }
+.portfolio-entry { position: relative; z-index: 3; display: inline-flex; align-items: center; min-height: 48px; padding: 0 23px; border: 1px solid #264b81; background: #264b81; color: #fff; font-size: 16px; font-weight: 600; letter-spacing: .10em; }
 .portfolio-entry:hover { background: #17365f; }
 .nav a:focus-visible, .portfolio-entry:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 4px; }
-.dragon { position: relative; justify-self: center; width: min(100%, max(300px, calc(106svh - 145px))); aspect-ratio: 1; pointer-events: none; }
+.dragon { position: relative; z-index: 4; justify-self: center; width: min(100%, max(300px, calc(106svh - 145px))); aspect-ratio: 1; pointer-events: none; }
 .dragon canvas, .dragon img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .dragon canvas { opacity: 0; transition: opacity .5s ease; }
 .dragon img { transition: opacity .5s ease; }
@@ -63,8 +62,6 @@ body { background: var(--paper); color: var(--ink); font-family: var(--serif); -
   .nav ul { width: 100%; font-size: 13px; }
   .nav li a { padding: 8px 10px; }
   .stage { grid-template-columns: minmax(0, 1fr); align-content: center; gap: 8px; padding-block: 24px 0; }
-  .headline { font-size: clamp(36px, 9vw, 56px); }
-  .headline span { display: inline; }
   .tagline { margin: 10px 0 15px; }
   .dragon { width: min(100%, 440px); }
   .floral { width: 40vw; }
@@ -76,7 +73,7 @@ body { background: var(--paper); color: var(--ink); font-family: var(--serif); -
 <style>
   @media (prefers-reduced-motion: no-preference) {
     html { scroll-behavior: smooth; }
-    body > .hero > .stage, body > main { animation: content-arrive .28s ease-out both; }
+    body > .hero > .stage { animation: content-arrive .28s ease-out; }
     @keyframes content-arrive {
       from { opacity: .88; }
       to { opacity: 1; }
@@ -102,7 +99,7 @@ body { background: var(--paper); color: var(--ink); font-family: var(--serif); -
   </nav>
   <div class="stage">
     <div class="hero-copy">
-      <h1 class="headline"><span>AIGC</span> <span>作品集</span></h1>
+      <h1 class="headline"><img src="./ink-portfolio-title.png" width="1672" height="941" alt="AIGC 作品集" fetchpriority="high"></h1>
       <p class="tagline">短剧制作、影视视觉与设计</p>
       <a class="portfolio-entry" href="./stitch-18358134310995193695/portfolio-desktop.html">浏览作品</a>
     </div>
