@@ -6,9 +6,9 @@
 <title>关于我 · 李连凯</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&amp;family=Noto+Serif+SC:wght@400;600;700&amp;display=swap">
 <style>
-.cover-navigation, .portfolio-main { --paper: #f7f5ef; background-color: var(--paper); }
+.cover-navigation, .portfolio-main { --paper: #fffdf8; background-color: var(--paper); }
 .cover-navigation {
-  --paper: #f7f5ef;
+  --paper: #fffdf8;
   --ink: #16233a;
   position: relative;
   isolation: isolate;
@@ -19,10 +19,10 @@
   font: 400 16px/normal "Noto Serif SC", "Songti SC", SimSun, serif;
 }
 .cover-navigation-floral { position: absolute; z-index: -1; top: -3svh; right: -2vw; width: min(24vw, 42svh); pointer-events: none; }
-.nav { position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; border-inline: 2px solid #254876; background: transparent; padding: 15px clamp(14px, 2vw, 28px); }
+.nav { position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; border-inline: 2px solid #426d9a; background: transparent; padding: 15px clamp(14px, 2vw, 28px); }
 .nav::before, .nav::after {
   content: ""; position: absolute; inset-inline: -5px; height: 6px; pointer-events: none;
-  background: linear-gradient(90deg, #24456f 0%, #45648b 32%, #294970 67%, #6b86a5 100%);
+  background: linear-gradient(90deg, #4b759e 0%, #6b8fb4 32%, #577da6 67%, #8eabc7 100%);
   clip-path: polygon(0 58%, 2% 22%, 17% 9%, 42% 27%, 67% 16%, 88% 22%, 97% 0, 100% 42%, 94% 63%, 81% 76%, 62% 69%, 34% 94%, 14% 71%, 4% 100%);
 }
 .nav::before { top: -2px; }
@@ -33,8 +33,8 @@
 .signature span { color: #4d607a; font-size: 12px; letter-spacing: .08em; }
 .nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: 4px clamp(6px, 1vw, 16px); list-style: none; padding: 0; }
 .nav li a { display: block; padding: 9px clamp(10px, 1.15vw, 18px); font-weight: 600; white-space: nowrap; }
-.nav li a:not([aria-current]):not(:hover) { background: #f7f5efcb; }
-.nav a[aria-current], .nav li a:hover { color: #174288; background: #e7eef7; }
+.nav li a:not([aria-current]):not(:hover) { background: #fffdf8cb; }
+.nav a[aria-current], .nav li a:hover { color: #174288; background: #edf6ff; }
 .nav .contact { border: 1px solid #8d9fba; }
 .cover-navigation a:focus-visible { outline: 2px solid #1d4fbf; outline-offset: 4px; }
 @media (max-width: 680px) {
@@ -45,7 +45,7 @@
 }
 </style>
 <style>
-:root { --paper:#f7f5ef; --ink:#16233a; --blue:#315b8d; --muted:#4d607a; --line:#d4dce3; --serif:"Noto Serif SC","Songti SC",SimSun,serif; }
+:root { --paper:#fffdf8; --ink:#16233a; --blue:#315b8d; --muted:#4d607a; --line:#dce7ef; --serif:"Noto Serif SC","Songti SC",SimSun,serif; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.75 system-ui,"Microsoft YaHei",sans-serif; }
 h1,h2,h3,p,ul,ol,figure { margin:0; }
@@ -67,14 +67,14 @@ a:focus-visible { outline:2px solid #1d4fbf; outline-offset:4px; }
 .about-actions a:first-child { background:var(--blue); color:#fff; }
 .about-actions a:hover { box-shadow:0 0 0 2px #315b8d32; }
 .about-section { padding-block:clamp(48px,8vw,112px); }
-.skills-section { background:#e9eef2; }
+.skills-section { background:#f3f8fd; }
 .section-heading { max-width:650px; margin-inline:auto; text-align:center; margin-bottom:clamp(24px,5vw,58px); }
 .section-heading p { margin-top:12px; color:var(--muted); }
 .skills-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
-.skill,.experience-card { padding:clamp(20px,3.5vw,42px); border:1px solid var(--line); border-radius:12px; background:#fffdf8; }
+.skill,.experience-card { padding:clamp(20px,3.5vw,42px); border:1px solid var(--line); border-radius:12px; background:#ffffff; }
 .skill p,.experience-card p { margin-top:12px; color:var(--muted); }
 .skill-tags { display:flex; flex-wrap:wrap; gap:7px; list-style:none; padding:0; margin-top:16px; }
-.skill-tags li { border-radius:999px; background:#e6edf5; color:#29496c; padding:3px 11px; font-size:13px; }
+.skill-tags li { border-radius:999px; background:#edf6ff; color:#29496c; padding:3px 11px; font-size:13px; }
 .timeline { list-style:none; padding:0; position:relative; display:grid; gap:22px; }
 .timeline::before { content:""; position:absolute; inset-block:0; left:50%; width:1px; background:#a6b7ca; }
 .timeline li { width:calc(50% - 24px); position:relative; }
@@ -115,7 +115,7 @@ a:focus-visible { outline:2px solid #1d4fbf; outline-offset:4px; }
 <header class="cover-navigation">
   <img class="cover-navigation-floral" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261004_073106_56d0499c-5908-4447-86b8-465d712ca552.png">
   <nav class="nav" aria-label="主导航">
-    <a class="signature" href="../index.html"><strong>李连凯</strong><span>AIGC 短剧制作与影视视觉设计</span></a>
+    <a class="signature" href="../index.html"><strong>李连凯</strong><span>AIGC 内容制作师</span></a>
     <ul>
       <li><a href="../index.html">首页</a></li>
       <li><a href="./portfolio-desktop.html">作品</a></li>
@@ -130,9 +130,9 @@ a:focus-visible { outline:2px solid #1d4fbf; outline-offset:4px; }
     <figure class="about-portrait"><img src="./profile-photo.png" alt="李连凯的个人照片" width="1024" height="1536" fetchpriority="high"></figure>
     <div>
       <h1 id="about-title">你好，我是李连凯</h1>
-      <p class="about-lead">AIGC 短剧制作与影视视觉设计</p>
-      <p class="about-copy">我是 2026 届本科毕业生，在山西工程科技职业大学学习智能建造工程。我从平面设计和动态视觉开始，2024 年开始学习生成式 AI，关注它在影视画面与短剧制作中的应用。</p>
-      <p class="about-copy">2025 年 11 月加入 StoReel，参与 AI 短剧制作与视觉设计，接触面向海外的短剧内容。作品集中也收录了我在品牌视觉、电商和影视设定方向的项目。</p>
+      <p class="about-lead">AIGC 内容制作师</p>
+      <p class="about-copy">我本科毕业于山西工程科技职业大学，具备 AIGC 视觉创作与视频内容制作经验，能够独立完成多类型 AI 视觉内容创作。</p>
+      <p class="about-copy">我参与商业广告、品牌宣传片及短视频制作，熟悉从创意策划、脚本拆解和分镜，到画面生成、剪辑与后期交付的流程。</p>
       <div class="about-actions"><a href="./portfolio-desktop.html">查看作品</a><a href="./portfolio-desktop.html#contact-section">联系我</a></div>
     </div>
   </section>
@@ -140,17 +140,17 @@ a:focus-visible { outline:2px solid #1d4fbf; outline-offset:4px; }
     <div class="wrap">
       <div class="section-heading"><h2 id="skills-title">技能专长</h2><p>从剧本、分镜和角色设定，到视觉素材与剪辑。</p></div>
       <div class="skills-grid">
-        <article class="skill"><h3>AI 短剧视觉开发</h3><p>参与短剧视觉制作。作品集中的短片案例展示了剧本、分镜及角色、场景和道具设定。</p><ul class="skill-tags"><li>分镜</li><li>角色设定</li><li>场景设计</li></ul></article>
-        <article class="skill"><h3>视频剪辑与后期</h3><p>熟练使用剪映，具备 Premiere Pro 和 DaVinci Resolve 的基础操作能力，学习过 After Effects。</p><ul class="skill-tags"><li>剪映</li><li>Premiere Pro</li><li>DaVinci Resolve</li><li>After Effects</li></ul></article>
-        <article class="skill"><h3>视觉设计与 IP</h3><p>学习过 Photoshop 和 Illustrator。作品包括品牌标识与应用、IP 角色设定、电商海报与详情页。</p><ul class="skill-tags"><li>Photoshop</li><li>Illustrator</li><li>品牌视觉</li><li>IP 设计</li></ul></article>
-        <article class="skill"><h3>生成式 AI 创作</h3><p>自 2024 年起学习生成式 AI，接触过 ComfyUI，探索 AI 图像在影视视觉设定和短剧制作中的应用。</p><ul class="skill-tags"><li>ComfyUI</li><li>AI 图像</li><li>影视视觉设定</li></ul></article>
+        <article class="skill"><h3>创意策划与分镜</h3><p>根据项目需求拆解脚本，设计视觉方案、镜头构图和首尾帧。</p><ul class="skill-tags"><li>脚本拆解</li><li>视觉方案</li><li>分镜设计</li></ul></article>
+        <article class="skill"><h3>视频剪辑与动态视觉</h3><p>完成视频剪辑、合成、画面修复和后期优化，运用 MG 动画与视觉特效。</p><ul class="skill-tags"><li>Premiere Pro</li><li>剪映</li><li>DaVinci Resolve</li><li>After Effects</li></ul></article>
+        <article class="skill"><h3>平面设计与视觉素材</h3><p>使用平面设计软件和 AI 图像工具，制作与优化人物、场景、道具和产品素材。</p><ul class="skill-tags"><li>Photoshop</li><li>Illustrator</li><li>图生图</li></ul></article>
+        <article class="skill"><h3>生成式 AI 与工作流</h3><p>搭建生成工作流，配置模型与 LoRA，使用 ControlNet 和提示词控制风格、角色一致性与镜头连贯性。</p><ul class="skill-tags"><li>GPT</li><li>LibTV</li><li>ComfyUI</li><li>海螺 AI</li><li>即梦 AI</li><li>AI 视频生成</li></ul></article>
       </div>
     </div>
   </section>
   <section class="about-section wrap" id="experience" aria-labelledby="experience-title">
     <div class="section-heading"><h2 id="experience-title">工作与学习经历</h2></div>
     <ol class="timeline">
-      <li class="experience-card"><p class="date"><time datetime="2025-11">2025 年 11 月</time>入职</p><h3>北京世哆睿安科技有限公司（StoReel）</h3><p>AIGC 短剧制作与视觉设计方向实习，参与 AI 短剧及相关视觉设计，接触海外短剧业务。</p></li>
+      <li class="experience-card"><p class="date"><time datetime="2025-11">2025.11</time>–<time datetime="2026-12">2026.12</time></p><h3>联梦跳悦文化传媒（北京）有限公司</h3><p><strong>AIGC 内容制作师</strong></p><p>参与商业广告、品牌宣传片及短视频的 AIGC 制作。根据需求完成策划、脚本拆解、分镜与首尾帧，生成人物、场景、道具和产品素材。通过提示词控制画面风格与镜头连续性，并负责素材筛选、画面修复、视频合成和交付。</p></li>
       <li class="experience-card"><p class="date"><time datetime="2022-09">2022.09</time>–<time datetime="2026-06">2026.06</time></p><h3>山西工程科技职业大学</h3><p>智能建造工程本科。2022—2023 学年担任班级生活委员、学生会体育部成员。普通话二级甲等，平时喜欢视觉设计、视频剪辑、足球和乒乓球。</p></li>
     </ol>
     <div class="about-actions experience-actions"><a href="./resume.docx" download="李连凯 AIGC 求职简历 A4投递版.docx">下载求职简历</a><a href="./portfolio-desktop.html#contact-section">联系我</a></div>
