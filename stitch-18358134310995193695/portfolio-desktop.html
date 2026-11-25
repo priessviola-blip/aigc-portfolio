@@ -119,12 +119,6 @@
   .work-project { border-color: #49617c; }
   .work-index { border-color: #526984; }
   .work-tabs button, .work-tabs a, .work-tags button { position: relative; border-color: #7391ab82; }
-  .ink-flow-surface { position: relative; isolation: isolate; }
-  .ink-flow-surface.work-project { overflow: visible; }
-  .ink-flow-surface.work-project > a { overflow: hidden; border-radius: inherit; }
-  .ink-flow { position: absolute; inset: -28px; width: calc(100% + 56px); height: calc(100% + 56px); pointer-events: none; z-index: -1; }
-  .work-tabs .ink-flow, .work-tags .ink-flow { inset: -10px; width: calc(100% + 20px); height: calc(100% + 20px); }
-  @media (prefers-reduced-motion: reduce) { .ink-flow { display: none; } }
 </style>
 </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
 
@@ -179,19 +173,9 @@
     <div class="work-project-body"><p class="work-project-meta">AI短片</p><h3>休息一下</h3><p class="work-project-meta">成片与制作资料</p></div>
   </a>
 </article>
-<article class="work-project" data-work="design character">
-  <a href="./designs/jingan-brand/index.html"><img class="work-cover" src="./designs/jingan-brand/page-056.webp" alt="" loading="lazy">
-    <div class="work-project-body"><p class="work-project-meta">品牌与营销视觉</p><h3>晋擀手擀面品牌全案</h3></div>
-  </a>
-</article>
 <article class="work-project" data-work="video tvc">
   <a href="./projects/project-01/index.html"><img class='work-cover' src='./projects/project-01/video-cover.jpg' alt='' loading='lazy'>
     <div class="work-project-body"><p class="work-project-meta">TVC广告</p><h3>洗衣机</h3><p class="work-project-meta">成片与制作资料</p></div>
-  </a>
-</article>
-<article class="work-project" data-work="design poster banner ecommerce">
-  <a href="./designs/deli-markers/index.html"><img class="work-cover" src="./designs/deli-markers/page-006.webp" alt="" loading="lazy">
-    <div class="work-project-body"><p class="work-project-meta">电商与产品视觉</p><h3>得力双头记号笔电商全案</h3></div>
   </a>
 </article>
 <article class="work-project" data-work="video ai-short">
@@ -204,29 +188,9 @@
     <div class="work-project-body"><h3>潮汐信标 · 游戏 CG 动作预演</h3></div>
   </a>
 </article>
-<article class="work-project" data-work="design poster">
-  <a href="./designs/unlock-your-space/index.html"><img class="work-cover" src="./designs/unlock-your-space/poster.webp" alt="" loading="lazy" style="object-fit:contain">
-    <div class="work-project-body"><p class="work-project-meta">品牌与营销视觉</p><h3>Unlock Your Space · 球鞋概念海报</h3></div>
-  </a>
-</article>
-<article class="work-project" data-work="design">
-  <a href="./designs/last-train-portrait/index.html"><img class="work-cover" src="./designs/last-train-portrait/poster.webp" alt="" loading="lazy">
-    <div class="work-project-body"><h3>末班车之后 · AI 人像</h3></div>
-  </a>
-</article>
 <article class="work-project" data-work="video ai-short">
   <a href="./designs/glass-tide/index.html"><img class="work-cover" src="./designs/glass-tide/cover.jpg" alt="" loading="lazy">
     <div class="work-project-body"><h3>玻璃潮汐 · 实验音画</h3></div>
-  </a>
-</article>
-<article class="work-project" data-work="design poster">
-  <a href="./designs/night-frame/index.html"><img class="work-cover" src="./designs/night-frame/poster.webp" alt="" loading="lazy">
-    <div class="work-project-body"><h3>Night Frame · 夜间电影节视觉</h3></div>
-  </a>
-</article>
-<article class="work-project" data-work="design poster banner ecommerce">
-  <a href="./designs/rouge-velours/index.html"><img class="work-cover" src="./designs/rouge-velours/poster.webp" alt="" loading="lazy">
-    <div class="work-project-body"><h3>Rouge Velours · 香水产品视觉</h3></div>
   </a>
 </article>
 <article class="work-project" data-work="design drama-concept">
@@ -390,7 +354,7 @@
   </a>
 </article>
 </div>
-<p class="work-status" id="work-status" role="status">共 43 件作品</p>
+<p class="work-status" id="work-status" role="status">共 37 件作品</p>
 </section>
 
 <script>
@@ -441,139 +405,4 @@
       <figcaption>微信扫码联系</figcaption>
     </figure>
   </div>
-</footer><script id="ink-flow-animation">
-(() => {
-  const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const targets = '.work-project, .work-index, .work-tabs button, .work-tabs a, .work-tags button, .contact-wechat, .skill, .experience-card';
-  const visible = new Map();
-  let frame = 0;
-
-  function plume(ctx, originX, originY, reach, time, seed, light, activity) {
-    const age = (time * .19 + seed) % 1;
-    const envelope = Math.sin(Math.PI * age) ** 1.6;
-    const drift = Math.sin(time * .91 + seed * 15);
-    ctx.save();
-    ctx.translate(originX, originY);
-    ctx.lineCap = 'round';
-
-    // Adjacent filaments share a flow field but spread as they dilute.
-    for (let filament = -4; filament <= 4; filament++) {
-      const separation = filament / 4;
-      const strength = activity * (.55 + .45 * envelope) * (1 - Math.abs(separation) * .13);
-      const extent = reach * (.44 + age * .52 + separation * .09);
-      const pigment = ctx.createLinearGradient(0, 0, extent, 0);
-      const rgb = light ? '129,192,229' : '34,99,150';
-      pigment.addColorStop(0, 'rgba(' + rgb + ',0)');
-      pigment.addColorStop(.19, 'rgba(' + rgb + ',' + (strength * .27) + ')');
-      pigment.addColorStop(.55, 'rgba(' + rgb + ',' + (strength * .16) + ')');
-      pigment.addColorStop(1, 'rgba(' + rgb + ',0)');
-      ctx.strokeStyle = pigment;
-      ctx.lineWidth = filament === 0 ? 2.8 : .8 + age * .55;
-      ctx.beginPath();
-      for (let step = 0; step <= 21; step++) {
-        const s = step / 21;
-        const advance = extent * s;
-        const curl = Math.sin(s * 8.2 - time * 1.48 + seed * 12 + separation * .52);
-        const cross = Math.sin(s * 3.3 + time * .69 + seed * 9);
-        const spread = Math.min(light ? 16 : 46, reach);
-        const y = (curl * .21 + cross * .15 + separation * .15 + drift * .10 - .12) * spread * s;
-        if (step === 0) ctx.moveTo(advance, y);
-        else ctx.lineTo(advance, y);
-      }
-      ctx.stroke();
-    }
-    ctx.restore();
-  }
-
-  function draw(now) {
-    frame = 0;
-    if (motion.matches || document.hidden || !visible.size) return;
-    const time = now / 1000;
-    const ratio = Math.min(devicePixelRatio || 1, 1.5);
-    visible.forEach(({ canvas, ctx, seed, compact }, target) => {
-      const width = target.clientWidth;
-      const height = target.clientHeight;
-      if (!width || !height) return;
-      const pad = compact ? 10 : 28;
-      const pixelWidth = Math.round((width + pad * 2) * ratio);
-      const pixelHeight = Math.round((height + pad * 2) * ratio);
-      if (canvas.width !== pixelWidth || canvas.height !== pixelHeight) {
-        canvas.width = pixelWidth;
-        canvas.height = pixelHeight;
-      }
-      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-      ctx.clearRect(0, 0, width + pad * 2, height + pad * 2);
-      ctx.save();
-
-      // Keep the center of every card and control free of moving pigment.
-      ctx.beginPath();
-      ctx.rect(0, 0, width + pad * 2, height + pad * 2);
-      ctx.roundRect(pad, pad, width, height, compact ? 5 : 14);
-      ctx.clip('evenodd');
-
-      const edges = [
-        { x: pad, y: pad, angle: 0, length: width },
-        { x: pad + width, y: pad, angle: Math.PI / 2, length: height },
-        { x: pad + width, y: pad + height, angle: Math.PI, length: width },
-        { x: pad, y: pad + height, angle: Math.PI * 1.5, length: height }
-      ];
-      const lap = (time / 3.1 + seed * 4) % 4;
-      const lifetime = 1.43;
-      edges.forEach((edge, index) => {
-        const phase = (lap - index + 4) % 4;
-        if (phase >= lifetime) return;
-
-        const travel = phase / lifetime;
-        const activity = Math.sin(Math.PI * travel) ** 1.2;
-        const reach = Math.min(compact ? 44 : 108, edge.length * .48);
-        const inset = Math.min(compact ? 3 : 12, edge.length * .15);
-        const run = Math.max(0, edge.length - reach - inset * 2);
-
-        ctx.save();
-        ctx.translate(edge.x, edge.y);
-        ctx.rotate(edge.angle);
-        plume(ctx, inset + run * travel, compact ? -2 : -4,
-          reach, time, (seed + index * .19) % 1, compact, activity);
-        ctx.restore();
-      });
-      ctx.restore();
-    });
-    schedule();
-  }
-
-  function schedule() {
-    if (!frame && visible.size && !motion.matches && !document.hidden) frame = requestAnimationFrame(draw);
-  }
-
-  if (!('IntersectionObserver' in window) || !CanvasRenderingContext2D.prototype.roundRect) return;
-  const states = new Map();
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        let state = states.get(entry.target);
-        if (!state) {
-          const canvas = document.createElement('canvas');
-          canvas.className = 'ink-flow';
-          canvas.setAttribute('aria-hidden', 'true');
-          const ctx = canvas.getContext('2d');
-          if (!ctx) return;
-          entry.target.classList.add('ink-flow-surface');
-          entry.target.append(canvas);
-          state = { canvas, ctx, seed: (states.size * .618) % 1, compact: entry.target.matches('button, a') };
-          states.set(entry.target, state);
-        }
-        visible.set(entry.target, state);
-      } else if (visible.delete(entry.target)) {
-        const state = states.get(entry.target);
-        state.ctx.clearRect(0, 0, state.canvas.width, state.canvas.height);
-      }
-    });
-    schedule();
-  });
-
-  document.querySelectorAll(targets).forEach(target => observer.observe(target));
-  document.addEventListener('visibilitychange', schedule);
-  motion.addEventListener('change', schedule);
-})();
-</script>
-</body></html>
+</footer></body></html>
