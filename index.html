@@ -45,12 +45,12 @@ button { font: inherit; }
   padding-block: var(--stage-space);
 }
 .hero-copy { position: relative; z-index: 2; max-width: 660px; }
-.eyebrow { color: var(--porcelain); font: 600 13px/1.3 var(--latin); letter-spacing: .24em; }
+.eyebrow { color: var(--porcelain); font: 600 clamp(14px, 1.24vw, 18px)/1.3 var(--latin); letter-spacing: .18em; }
 .hero-copy .eyebrow { display: flex; align-items: center; gap: 13px; }
 .hero-copy .eyebrow::before { content: ""; width: 29px; height: 1px; background: var(--bronze); flex: none; }
 .headline { margin: 20px 0 16px; font: 600 clamp(42px, min(5.3vw, 9.9svh), 86px)/1.19 var(--serif); letter-spacing: .028em; color: var(--navy); }
 .headline span { display: block; }
-.headline span + span { color: var(--porcelain); }
+.headline span + span { color: var(--porcelain); font-size: .92em; letter-spacing: .018em; }
 .hero-subtitle { color: var(--navy); font: 600 clamp(17px, 1.65vw, 25px)/1.5 var(--serif); letter-spacing: .10em; }
 .hero-position { margin-top: clamp(18px, 3vh, 30px); font-weight: 600; }
 .hero-summary { color: var(--muted); margin-top: 5px; max-width: 34em; }
@@ -155,9 +155,9 @@ button { font: inherit; }
     <div class="stage container">
       <div class="hero-copy">
         <p class="eyebrow" lang="en">AIGC CREATIVE PORTFOLIO</p>
-        <h1 class="headline" id="hero-title"><span>让想象力，</span><span>成为现实。</span></h1>
-        <p class="hero-subtitle">AIGC 视觉创意作品集</p>
-        <p class="hero-position">综合型 AIGC 创意制作师</p>
+        <h1 class="headline" id="hero-title"><span>AIGC</span> <span>视觉创意作品集</span></h1>
+        <p class="hero-subtitle">让想象力，成为现实。</p>
+        <p class="hero-position">综合型 AIGC 内容制作师</p>
         <p class="hero-summary">探索人工智能与视觉艺术的融合，让创意从概念走向真实的视觉表达。</p>
         <div class="hero-controls">
           <div class="hero-actions">
