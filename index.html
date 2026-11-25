@@ -9,25 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Noto+Serif+SC:wght@600;700&amp;display=swap">
+<link rel="stylesheet" href="./site-navigation.css">
 <style>
-:root {
-  color-scheme: light;
-  --paper: #f7f5ef;
-  --ink: #252a30;
-  --navy: #18385c;
-  --porcelain: #477eae;
-  --mist: #b9cde0;
-  --surface: #eaeff4;
-  --bronze: #b89a69;
-  --muted: #4b5c6b;
-  --line: rgb(24 56 92 / 17%);
-  --serif: "Noto Serif SC", "Songti SC", SimSun, serif;
-  --latin: "Cormorant Garamond", Georgia, serif;
-  --sans: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
-  --gutter: clamp(20px, 5.6vw, 104px);
-  --content: 1440px;
-  --nav-height: 80px;
-}
+
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.7 var(--sans); }
 h1, h2, h3, p, figure, ul { margin: 0; }
@@ -40,22 +24,7 @@ button { font: inherit; }
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 30; padding: 8px 16px; background: var(--paper); transform: translateY(-150%); }
 .skip-link:focus { transform: none; }
 
-.site-header { position: sticky; z-index: 10; top: 0; border-bottom: 1px solid var(--line); background: var(--paper); }
-.site-header.is-scrolled { background: rgb(247 245 239 / 94%); backdrop-filter: blur(12px); }
-.nav { position: relative; min-height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.signature { display: inline-grid; color: var(--navy); line-height: 1; letter-spacing: .12em; }
-.signature strong { font: 600 clamp(20px, 2vw, 29px)/1.04 var(--latin); white-space: nowrap; }
-.signature span { font-size: 12px; letter-spacing: .14em; margin-top: 5px; color: var(--muted); }
-.nav ul { display: flex; align-items: center; gap: clamp(22px, 3vw, 52px); padding: 0; list-style: none; }
-.nav li a { display: block; color: var(--navy); font-size: 14px; padding-block: 10px; white-space: nowrap; }
-.nav li a:not(.contact) { position: relative; }
-.nav li a:not(.contact)::after { content: ""; position: absolute; inset: auto 0 5px; height: 1px; background: var(--porcelain); transform: scaleX(0); transform-origin: left; transition: transform .22s ease; }
-.nav li a[aria-current]::after, .nav li a:hover::after { transform: scaleX(1); }
-.nav li a.contact { padding: 7px 15px; border: 1px solid var(--navy); border-radius: 3px; }
-.nav .contact:hover { background: var(--surface); }
-.menu-toggle { display: none; }
-
-.hero { position: relative; isolation: isolate; overflow: clip; min-height: calc(100svh - var(--nav-height)); display: flex; flex-direction: column; }
+.hero { position: relative; isolation: isolate; overflow: clip; min-height: calc(100svh - var(--nav-height) - 1px); display: flex; flex-direction: column; }
 .hero::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(ellipse at 76% 50%, rgb(185 205 224 / 22%), transparent 60%);
@@ -72,7 +41,8 @@ button { font: inherit; }
   grid-template-columns: minmax(0, 52fr) minmax(0, 48fr);
   align-items: center;
   gap: clamp(18px, 3vw, 54px);
-  padding-block: clamp(28px, 4.2svh, 70px);
+  --stage-space: clamp(20px, 4.2svh, 62px);
+  padding-block: var(--stage-space);
 }
 .hero-copy { position: relative; z-index: 2; max-width: 660px; }
 .eyebrow { color: var(--porcelain); font: 600 13px/1.3 var(--latin); letter-spacing: .24em; }
@@ -111,7 +81,7 @@ button { font: inherit; }
 .dragon-ring::before { top: 11%; right: 16%; }
 .dragon-ring::after { bottom: 12%; left: 16%; width: 3px; height: 3px; }
 .dragon {
-  position: relative; z-index: 1; width: min(112%, 800px, max(415px, calc(107svh - 142px))); aspect-ratio: 1;
+  position: relative; z-index: 1; width: min(112%, 800px, max(260px, calc(100svh - var(--nav-height) - 2 * var(--stage-space) - 2px))); aspect-ratio: 1;
   pointer-events: none; filter: drop-shadow(5px 14px 19px rgb(24 56 92 / 17%));
 }
 .dragon canvas, .dragon img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
@@ -121,74 +91,33 @@ button { font: inherit; }
 .dragon.is-live img { opacity: 0; }
 @media (hover: hover) { .hero:hover .dragon:not(.is-live) .back { opacity: 1; } }
 
-.hero-index { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
-.hero-index ul { display: flex; flex-wrap: wrap; gap: 4px clamp(14px, 2vw, 35px); list-style: none; padding: 0; }
-.hero-index li, .scroll-link { color: var(--navy); font: 600 12px/1.6 var(--latin); letter-spacing: .12em; }
-.scroll-link { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; padding: 6px 0; }
-.scroll-link:hover { color: var(--porcelain); }
-.scroll-link span { font-family: var(--sans); color: var(--porcelain); }
-
-.section { padding-block: clamp(66px, 9vw, 138px); }
-.section-heading { margin-bottom: 26px; }
-.section h2 { margin-top: 7px; color: var(--navy); font: 600 clamp(30px, 4vw, 51px)/1.25 var(--serif); }
-.about-preview { border-block: 1px solid var(--line); background: var(--surface); }
-.about-preview .container { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 6vw, 110px); align-items: center; }
-.about-preview p:not(.eyebrow) { color: var(--muted); max-width: 41em; margin: 0 0 18px; }
-.text-link { display: inline-block; color: var(--navy); border-bottom: 1px solid var(--porcelain); padding-block: 3px; font-size: 14px; font-weight: 600; }
-.text-link:hover { color: var(--porcelain); }
-.about-portrait { min-width: 0; width: min(100%, 390px); justify-self: center; padding: 10px; border: 1px solid var(--line); border-radius: 4px 4px 76px 4px; }
-.about-portrait img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 44%; border-radius: 2px 2px 68px 2px; }
-.works-heading { display: flex; justify-content: space-between; align-items: end; gap: 16px; }
-.preview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 32px); }
-.preview-card { display: block; min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #fffdf8; }
-.preview-image { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface); }
-.preview-image img { width: 100%; height: 100%; object-fit: cover; }
-.preview-content { padding: 15px clamp(12px, 2vw, 24px) 18px; }
-.preview-content p { color: var(--muted); font-size: 13px; }
-.preview-content h3 { margin-top: 4px; color: var(--navy); font: 600 clamp(18px, 1.7vw, 25px)/1.35 var(--serif); }
-.preview-card:hover { border-color: var(--porcelain); }
-
-.capabilities { border-top: 1px solid var(--line); background: var(--surface); }
-.capability-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 18px; }
-.capability { padding: 17px 0 1px; border-top: 1px solid var(--porcelain); }
-.capability h3 { color: var(--navy); font: 600 19px/1.4 var(--serif); }
-.capability p { margin-top: 8px; color: var(--muted); font-size: 14px; }
-.site-footer .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 22px; padding-block: 20px; }
-.site-footer p { color: var(--muted); font-size: 14px; }
-
 @media (max-width: 1023px) {
   .stage { gap: 18px; }
   .hero-summary { font-size: 15px; }
-  .dragon { width: min(110%, 590px); }
+  .dragon { width: min(110%, 590px, max(220px, calc(100svh - var(--nav-height) - 2 * var(--stage-space) - 2px))); }
 }
 @media (max-width: 767px) {
-  :root { --nav-height: 66px; }
-  .nav { flex-wrap: wrap; gap: 0 16px; padding-block: 10px; }
-  .nav ul { flex-wrap: wrap; gap: 7px 19px; }
-  .nav.is-enhanced .menu-toggle { display: inline-flex; align-items: center; padding: 6px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--navy); cursor: pointer; }
-  .nav.is-enhanced ul { display: none; }
-  .nav.is-enhanced ul.is-open {
-    display: grid; position: absolute; z-index: 2; top: 100%; right: 0;
-    width: min(235px, 100%); padding: 9px 14px; background: var(--paper);
-    border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 12px 24px rgb(24 56 92 / 10%);
-  }
-  .hero { min-height: auto; }
-  .stage { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 38px 22px; }
+
+  .stage { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 24px 14px; }
   .headline { font-size: clamp(36px, 9.5vw, 63px); margin-block: 14px 12px; }
-  .hero-position { margin-top: 16px; }
-  .hero-controls { gap: 14px; margin-top: 18px; }
+  .hero-position { margin-top: 14px; }
+  .hero-controls { gap: 11px; margin-top: 15px; }
   .domain-list { order: 0; }
   .dragon-scene { margin-inline: auto; width: min(100%, 455px); }
-  .dragon { width: min(106%, 480px); }
+  .dragon { width: min(106%, clamp(188px, calc(100svh - 454px), 480px)); }
   .floral { width: min(36vw, 210px); }
-  .hero-index { align-items: flex-start; }
-  .about-preview .container { grid-template-columns: minmax(0, 1fr); }
-  .about-portrait { justify-self: start; }
-  .preview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 460px) {
-  .hero-index { flex-wrap: wrap; }
-  .preview-grid { grid-template-columns: minmax(0, 1fr); }
+
+@media (max-width: 767px) and (max-height: 790px) {
+  .stage { gap: 12px; padding-block: 14px 10px; }
+  .headline { font-size: clamp(34px, 8.7vw, 56px); }
+  .dragon { width: min(106%, clamp(168px, calc(100svh - 488px), 400px)); }
+}
+@media (max-height: 740px) and (min-width: 768px) {
+  .stage { padding-block: 20px; }
+  .headline { font-size: clamp(39px, min(5.3vw, 8.4svh), 66px); margin-block: 12px 9px; }
+  .hero-position { margin-top: 14px; }
+  .hero-controls { margin-top: 14px; gap: 12px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
@@ -198,21 +127,16 @@ button { font: inherit; }
   .action { transition: transform .2s ease, background-color .22s ease; }
   .action:hover { transform: translateY(-2px); }
   .action:active { transform: translateY(1px); }
-  .preview-image img { transition: transform .45s ease; }
-  .preview-card:hover img, .preview-card:focus-visible img { transform: scale(1.035); }
-  .scroll-link span { animation: drift 2.8s ease-in-out infinite; }
-  @keyframes drift { 50% { transform: translateY(3px); } }
-  .section.is-arriving { animation: settle .65s ease-out; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .dragon canvas, .dragon img, .nav li a::after { transition: none; }
+  .dragon canvas, .dragon img { transition: none; }
 }
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到主要内容</a>
 <header class="site-header">
-  <nav class="nav container" aria-label="主导航">
+  <nav class="nav nav-shell" aria-label="主导航">
     <a class="signature" href="./index.html" aria-label="AIGC Creative 首页"><strong>AIGC CREATIVE</strong><span>AIGC 内容制作师</span></a>
     <button class="menu-toggle" type="button" aria-controls="home-menu" aria-expanded="false">菜单</button>
     <ul id="home-menu">
@@ -254,98 +178,10 @@ button { font: inherit; }
   </div>
       </div>
     </div>
-    <div class="hero-index container">
-      <ul lang="en"><li>CREATIVE DIRECTION</li><li>AI FILM &amp; VIDEO</li><li>VISUAL DESIGN</li><li>DIGITAL ART</li></ul>
-      <a class="scroll-link" href="#about-preview" lang="en">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a>
-    </div>
-  </section>
-  <section class="section about-preview" id="about-preview" aria-labelledby="about-preview-title">
-    <div class="container">
-      <div>
-        <div class="section-heading"><p class="eyebrow" lang="en">ABOUT ME</p><h2 id="about-preview-title">关于我</h2></div>
-        <p>我是李连凯，AIGC 内容制作师。我的工作从创意策划和脚本拆解开始，再通过分镜、视觉生成与剪辑，把方案落实到可以交付的画面。</p>
-        <p>参与商业广告、品牌宣传片与短视频制作，关注角色一致性、镜头连贯性和视觉风格。</p>
-        <a class="text-link" href="./stitch-18358134310995193695/about.html">查看个人介绍与工作经历</a>
-      </div>
-      <figure class="about-portrait"><img src="./stitch-18358134310995193695/profile-photo.png" width="1024" height="1536" alt="李连凯的个人照片" loading="lazy"></figure>
-    </div>
-  </section>
-  <section class="section container" id="works-preview" aria-labelledby="works-preview-title">
-    <div class="section-heading works-heading">
-      <div><p class="eyebrow" lang="en">SELECTED WORKS</p><h2 id="works-preview-title">精选作品</h2></div>
-      <a class="text-link" href="./stitch-18358134310995193695/portfolio-desktop.html">查看全部作品</a>
-    </div>
-    <div class="preview-grid">
-      <a class="preview-card" href="./stitch-18358134310995193695/projects/project-23/index.html">
-        <span class="preview-image"><img src="./stitch-18358134310995193695/projects/project-23/video-cover.jpg" alt="" width="720" height="450" loading="lazy"></span>
-        <div class="preview-content"><p>AI短片</p><h3>休息一下</h3></div>
-      </a>
-      <a class="preview-card" href="./stitch-18358134310995193695/projects/project-27/index.html">
-        <span class="preview-image"><img src="./stitch-18358134310995193695/projects/project-27/video-cover.jpg" alt="" width="720" height="450" loading="lazy"></span>
-        <div class="preview-content"><p>TVC广告</p><h3>香水</h3></div>
-      </a>
-      <a class="preview-card" href="./stitch-18358134310995193695/designs/wandering-post/index.html">
-        <span class="preview-image"><img src="./stitch-18358134310995193695/designs/wandering-post/page-067.webp" alt="" width="720" height="450" loading="lazy"></span>
-        <div class="preview-content"><p>IP 与概念设计</p><h3>漫游邮局图标设计</h3></div>
-      </a>
-    </div>
-  </section>
-  <section class="section capabilities" id="capabilities" aria-labelledby="capabilities-title">
-    <div class="container">
-      <div class="section-heading"><h2 id="capabilities-title">专业能力</h2></div>
-      <div class="capability-grid">
-        <article class="capability"><h3>AI 内容创作</h3><p>生成式视觉、工作流与提示词设计</p></article>
-        <article class="capability"><h3>影视视觉制作</h3><p>分镜、风格设定与视频剪辑</p></article>
-        <article class="capability"><h3>3D 场景与动画</h3><p>空间构图、场景氛围与动态表达</p></article>
-        <article class="capability"><h3>品牌视觉设计</h3><p>品牌主视觉、IP 与电商物料</p></article>
-        <article class="capability"><h3>创意策划与执行</h3><p>从需求拆解到项目交付</p></article>
-      </div>
-    </div>
   </section>
 </main>
-<footer class="site-footer"><div class="container"><p>李连凯 · AIGC 内容制作师</p><a class="text-link" href="./stitch-18358134310995193695/portfolio-desktop.html#contact-section">联系我</a></div></footer>
 
-<script>
-(() => {
-  const header = document.querySelector('.site-header');
-  const nav = header.querySelector('.nav');
-  const button = nav.querySelector('.menu-toggle');
-  const menu = document.getElementById('home-menu');
-  const mobile = matchMedia('(max-width: 767px)');
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  function setMenu(open) {
-    menu.classList.toggle('is-open', open);
-    button.setAttribute('aria-expanded', String(open));
-  }
-  nav.classList.add('is-enhanced');
-  button.addEventListener('click', () => setMenu(button.getAttribute('aria-expanded') !== 'true'));
-  mobile.addEventListener('change', () => setMenu(false));
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
-      setMenu(false);
-      button.focus();
-    }
-  });
-  document.addEventListener('click', event => {
-    if (!nav.contains(event.target) || menu.contains(event.target)) setMenu(false);
-  });
-  const updateHeader = () => header.classList.toggle('is-scrolled', scrollY > 8);
-  addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader();
-
-  if ('IntersectionObserver' in window && !reducedMotion.matches) {
-    const observer = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-arriving');
-          observer.unobserve(entry.target);
-        }
-      }
-    }, { threshold: .12 });
-    document.querySelectorAll('.section').forEach(section => observer.observe(section));
-  }
-})();
-</script>
+<script src="./site-navigation.js"></script>
 <script>
 (() => {
   const TRAIL = { radius: 0.105, strength: 1.0, dissipation: 0.966, momentum: 9, fluidity: 1.7, simSize: 256 };
