@@ -119,6 +119,12 @@ button { font: inherit; }
   .hero-position { margin-top: 14px; }
   .hero-controls { margin-top: 14px; gap: 12px; }
 }
+@media (min-width: 1024px) {
+  .hero-copy { container-type: inline-size; max-width: 760px; }
+  .hero-copy .eyebrow { font-size: clamp(16px, min(1.5vw, 3.45cqi), 23px); }
+  .headline { font-size: clamp(52px, min(17.5cqi, 13svh), 124px); line-height: 1.07; }
+  .headline span + span { font-size: clamp(38px, min(13.4cqi, 10.8svh), 103px); }
+}
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
   .hero-copy { animation: settle .7s ease-out; }
