@@ -46,6 +46,20 @@ a:focus-visible { outline:2px solid #1d4fbf; outline-offset:4px; }
 .timeline li:nth-child(odd)::before { left:-29px; right:auto; }
 .experience-card .date { margin:0 0 10px; color:var(--blue); font-size:14px; }
 .experience-actions { justify-content:center; }
+.work-experience { max-width:1060px; margin-inline:auto; }
+.work-experience .experience-card { border-top:3px solid var(--blue); }
+.experience-role { font-size:19px; }
+.work-details { margin:24px 0 0; padding-left:22px; display:grid; gap:18px; }
+.work-details li::marker { color:var(--blue); }
+.work-details strong { color:var(--blue); }
+.work-details p { margin-top:4px; }
+.education-summary { margin-top:26px; padding:24px 0; border-bottom:1px solid var(--line); }
+.education-summary h3 { font-size:20px; margin-bottom:10px; }
+.education-summary p { color:var(--muted); }
+.education-summary .date { font-size:14px; margin-top:4px; }
+.skill { display:flex; flex-direction:column; }
+.skill .skill-tags { margin-top:auto; padding-top:20px; }
+.skill-tags li { overflow-wrap:anywhere; }
 @media(max-width:740px) {
   .about-hero,.skills-grid { grid-template-columns:1fr; }
   .about-portrait { width:min(76%,380px); }
@@ -84,7 +98,7 @@ a:focus-visible { outline:2px solid #1d4fbf; outline-offset:4px; }
   </nav>
 </header>
 <main>
-  <div class="wrap"><nav class="about-tabs" aria-label="关于我页面章节"><a href="#profile">个人介绍</a><a href="#skills">技能专长</a><a href="#experience">工作与学习经历</a></nav></div>
+  <div class="wrap"><nav class="about-tabs" aria-label="关于我页面章节"><a href="#profile">个人介绍</a><a href="#experience">工作与学习经历</a><a href="#skills">技能专长</a></nav></div>
   <section class="about-hero wrap" id="profile" aria-labelledby="about-title">
     <figure class="about-portrait"><img src="./profile-photo.png" alt="李连凯的个人照片" width="1024" height="1536" fetchpriority="high"></figure>
     <div>
@@ -95,24 +109,41 @@ a:focus-visible { outline:2px solid #1d4fbf; outline-offset:4px; }
       <div class="about-actions"><a href="./portfolio-desktop.html">查看作品</a><a href="./portfolio-desktop.html#contact-section">联系我</a></div>
     </div>
   </section>
+  <section class="about-section wrap" id="experience" aria-labelledby="experience-title">
+    <div class="section-heading"><h2 id="experience-title">工作与学习经历</h2><p>参与商业广告、品牌宣传片与短视频的 AIGC 内容制作。</p></div>
+    <div class="work-experience">
+      <article class="experience-card">
+        <p class="date"><time datetime="2025-11">2025.11</time>–<time datetime="2026-12">2026.12</time></p>
+        <h3>联梦跳悦文化传媒（北京）有限公司</h3>
+        <p class="experience-role"><strong>AIGC 内容制作师</strong></p>
+        <p>参与商业广告、品牌宣传片及短视频的 AIGC 创意制作，围绕项目需求完成从创意策划、视觉生成到后期优化与成片交付的制作流程。</p>
+        <ul class="work-details">
+          <li><strong>创意策划与脚本拆解</strong><p>梳理项目目标、内容重点与叙事节奏，将脚本拆分为可执行的镜头任务，制定画面风格、色调与氛围方案。</p></li>
+          <li><strong>分镜设计与镜头规划</strong><p>根据脚本完成分镜、景别与镜头构图设计，规划运镜、画面转场及首尾帧，为后续素材生成和视频制作提供依据。</p></li>
+          <li><strong>AI 视觉素材制作</strong><p>运用 AI 工具生成并优化人物、场景、道具及产品素材，结合修图与合成统一画风、光影和比例，形成项目所需的视觉资产。</p></li>
+          <li><strong>提示词与画面一致性控制</strong><p>编写并迭代 AI 提示词，调整生成参数与参考素材，控制角色外观、服饰及画面风格，保持不同镜头之间的视觉连贯性。</p></li>
+          <li><strong>动态生成与镜头制作</strong><p>结合 AI 图像和视频工具完成动态画面生成，依据分镜调整动作与镜头表现，筛选可用片段并修复画面瑕疵。</p></li>
+          <li><strong>后期优化与项目交付</strong><p>负责素材筛选、画面修复、视频合成与剪辑优化，依据项目反馈调整成片，完成最终内容整理与交付。</p></li>
+        </ul>
+      </article>
+      <aside class="education-summary" aria-labelledby="education-title">
+        <h3 id="education-title">学习经历</h3>
+        <p><strong>山西工程科技职业大学</strong> · 智能建造工程本科</p>
+        <p class="date"><time datetime="2022-09">2022.09</time>–<time datetime="2026-06">2026.06</time></p>
+      </aside>
+    </div>
+    <div class="about-actions experience-actions"><a href="./resume.docx" download="李连凯 AIGC 求职简历 A4投递版.docx">下载求职简历</a><a href="./portfolio-desktop.html#contact-section">联系我</a></div>
+  </section>
   <section class="about-section skills-section" id="skills" aria-labelledby="skills-title">
     <div class="wrap">
-      <div class="section-heading"><h2 id="skills-title">技能专长</h2><p>从剧本、分镜和角色设定，到视觉素材与剪辑。</p></div>
+      <div class="section-heading"><h2 id="skills-title">技能专长</h2><p>从创意策划与分镜，到视觉生成、视频制作与后期交付。</p></div>
       <div class="skills-grid">
-        <article class="skill"><h3>创意策划与分镜</h3><p>根据项目需求拆解脚本，设计视觉方案、镜头构图和首尾帧。</p><ul class="skill-tags"><li>脚本拆解</li><li>视觉方案</li><li>分镜设计</li></ul></article>
-        <article class="skill"><h3>视频剪辑与动态视觉</h3><p>完成视频剪辑、合成、画面修复和后期优化，运用 MG 动画与视觉特效。</p><ul class="skill-tags"><li>Premiere Pro</li><li>剪映</li><li>DaVinci Resolve</li><li>After Effects</li></ul></article>
-        <article class="skill"><h3>平面设计与视觉素材</h3><p>使用平面设计软件和 AI 图像工具，制作与优化人物、场景、道具和产品素材。</p><ul class="skill-tags"><li>Photoshop</li><li>Illustrator</li><li>图生图</li></ul></article>
-        <article class="skill"><h3>生成式 AI 与工作流</h3><p>搭建生成工作流，配置模型与 LoRA，使用 ControlNet 和提示词控制风格、角色一致性与镜头连贯性。</p><ul class="skill-tags"><li>GPT</li><li>LibTV</li><li>ComfyUI</li><li>海螺 AI</li><li>即梦 AI</li><li>AI 视频生成</li></ul></article>
+        <article class="skill"><h3>创意策划与分镜</h3><p>根据项目需求拆解脚本，梳理叙事逻辑、节奏与信息层级；定制整套视觉方案，确定画面风格、色调、氛围；完成分镜绘制、镜头构图设计、运镜规划、画面转场以及首尾帧定稿，适配短视频、信息流广告、短剧等不同项目。</p><ul class="skill-tags"><li>脚本拆解</li><li>视觉方案</li><li>分镜设计</li><li>运镜规划</li><li>首尾帧设计</li></ul></article>
+        <article class="skill"><h3>视频剪辑与动态视觉</h3><p>独立完成视频粗剪、精剪、调色、音频混音、画面修复、字幕包装与全流程后期优化；熟练制作 MG 信息动画、动态图形、转场特效、画面合成，可实现实拍素材、AI 生成素材混合剪辑，把控成片节奏与观感。</p><ul class="skill-tags"><li>Premiere Pro</li><li>剪映</li><li>DaVinci Resolve</li><li>After Effects</li><li>MG 动画</li><li>音频混音</li><li>画面修复</li></ul></article>
+        <article class="skill"><h3>平面设计与视觉素材</h3><p>运用平面设计软件与 AI 图像生成工具，完成角色立绘、场景背景、道具、产品图、海报封面等素材的绘制、修图、排版优化；统一素材画风、光影、比例，为视频、短剧项目提供成套可用视觉资产。</p><ul class="skill-tags"><li>Photoshop</li><li>Illustrator</li><li>图生图</li><li>角色资产绘制</li><li>场景 / 道具设计</li><li>素材修图与统一画风</li></ul></article>
+        <article class="skill"><h3>生成式 AI 与工作流</h3><p>搭建稳定可控的 AI 图像、AI 视频本地 / 云端工作流；熟练模型选型、LoRA 训练与调用、ControlNet 姿态 / 构图 / 线稿控制；精通提示词工程、负面提示词优化，保障角色五官、服饰、画风一致性，保证镜头之间画面连贯，解决 AI 生成画面闪烁、人物变形等问题，产出适配后期的视频素材。</p><ul class="skill-tags"><li>GPT</li><li>LibTV</li><li>ComfyUI</li><li>海螺 AI</li><li>即梦 AI</li><li>AI 视频生成</li><li>LoRA 配置</li><li>ControlNet</li><li>提示词工程</li><li>角色一致性控制</li></ul></article>
       </div>
     </div>
-  </section>
-  <section class="about-section wrap" id="experience" aria-labelledby="experience-title">
-    <div class="section-heading"><h2 id="experience-title">工作与学习经历</h2></div>
-    <ol class="timeline">
-      <li class="experience-card"><p class="date"><time datetime="2025-11">2025.11</time>–<time datetime="2026-12">2026.12</time></p><h3>联梦跳悦文化传媒（北京）有限公司</h3><p><strong>AIGC 内容制作师</strong></p><p>参与商业广告、品牌宣传片及短视频的 AIGC 制作。根据需求完成策划、脚本拆解、分镜与首尾帧，生成人物、场景、道具和产品素材。通过提示词控制画面风格与镜头连续性，并负责素材筛选、画面修复、视频合成和交付。</p></li>
-      <li class="experience-card"><p class="date"><time datetime="2022-09">2022.09</time>–<time datetime="2026-06">2026.06</time></p><h3>山西工程科技职业大学</h3><p>智能建造工程本科。2022—2023 学年担任班级生活委员、学生会体育部成员。普通话二级甲等，平时喜欢视觉设计、视频剪辑、足球和乒乓球。</p></li>
-    </ol>
-    <div class="about-actions experience-actions"><a href="./resume.docx" download="李连凯 AIGC 求职简历 A4投递版.docx">下载求职简历</a><a href="./portfolio-desktop.html#contact-section">联系我</a></div>
   </section>
 </main>
 <script src="../site-navigation.js"></script>
